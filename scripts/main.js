@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="search-item-info">
                             <h4>${product.name}</h4>
                             <p>${product.type}</p>
-                            <span>$${product.price.toLocaleString()}</span>
+                            <span>${formatPrice(PRICE_DOCENA)}</span> <!-- Fixed Price -->
                         </div>
                     `;
                     div.addEventListener('click', () => {
