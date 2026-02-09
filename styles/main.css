@@ -1187,7 +1187,13 @@ img {
     .site-header .container {
         padding: 0 10px;
         /* Reduce padding to give more space/ */
-        justify-content: space-between;
+        justify-content: flex-start;
+        /* Don't space between */
+    }
+
+    .logo {
+        margin-right: auto;
+        /* Push everything else to right */
     }
 
     .logo a {
@@ -1330,9 +1336,29 @@ img {
     }
 
     .search-container {
-        display: flex !important;
-        /* Force show */
-        align-items: center;
+        position: static;
+        /* Reset relative static for flex */
+    }
+
+    #search-input {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 10px;
+        border-bottom: 2px solid var(--color-gold);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 998;
+        display: none;
+        /* Hidden by default */
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    #search-input.active {
+        display: block;
+        opacity: 1;
     }
 
     .search-container .btn-icon {
