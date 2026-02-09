@@ -1177,6 +1177,25 @@ img {
 }
 
 @media (max-width: 768px) {
+
+    /* Mobile Header Optimizations */
+    :root {
+        --header-height: 90px;
+    }
+
+    .logo-img {
+        height: 50px;
+    }
+
+    .brand-text-img {
+        height: 60px;
+        margin-top: 5px;
+    }
+
+    .logo a {
+        gap: 8px;
+    }
+
     .menu-toggle {
         display: flex;
     }
