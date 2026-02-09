@@ -1292,7 +1292,33 @@ img {
 
     .modal-content {
         width: 95%;
-        margin: 10% auto;
+        margin: 5% auto;
+        max-height: 90vh;
+        /* Prevent it from going off screen */
+        overflow-y: auto;
+        /* Enable scrolling */
+    }
+
+    .modal-body {
+        flex-direction: column;
+        /* Stack image and text */
+    }
+
+    .modal-image {
+        height: 250px;
+        /* Smaller image */
+        min-width: auto;
+    }
+
+    .modal-info {
+        padding: 20px;
+        /* Less padding */
+    }
+
+    /* Fix for About Section Whitespace */
+    #about .image-content {
+        min-height: 250px !important;
+        /* Override inline 400px */
     }
 }
 
@@ -1302,8 +1328,8 @@ img {
     }
 
     .search-container {
-        display: none;
-        /* Hide search on very small mobile for simplicity */
+        display: flex;
+        /* Show search on mobile */
     }
 
     .hero-content h1 {
