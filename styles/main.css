@@ -1180,26 +1180,56 @@ img {
 
     /* Mobile Header Optimizations */
     :root {
-        --header-height: 90px;
+        --header-height: 70px;
+        /* Even smaller header */
     }
 
-    .logo-img {
-        height: 50px;
-    }
-
-    .brand-text-img {
-        height: 60px;
-        margin-top: 5px;
+    .site-header .container {
+        padding: 0 10px;
+        /* Reduce padding to give more space/ */
+        justify-content: space-between;
     }
 
     .logo a {
-        gap: 8px;
+        gap: 5px;
+        /* Tighter gap */
+    }
+
+    .logo-img {
+        height: 40px;
+        /* Smaller logo */
+    }
+
+    .brand-text-img {
+        height: 35px;
+        /* Much smaller brand text to fit */
+        margin-top: 2px;
+    }
+
+    .header-actions {
+        gap: 10px;
+        /* Tighter actions */
+    }
+
+    .btn-icon {
+        font-size: 1rem;
+        /* Smaller icons */
+    }
+
+    .cart-count {
+        width: 15px;
+        height: 15px;
+        font-size: 0.6rem;
+        right: -5px;
+        top: -5px;
     }
 
     .menu-toggle {
         display: flex;
+        margin-left: 5px;
     }
 
+    /* Ensure Nav is HIDDEN properly */
     .main-nav {
         position: fixed;
         top: var(--header-height);
@@ -1207,13 +1237,21 @@ img {
         width: 100%;
         background: white;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-        transform: translateY(-150%);
-        transition: transform 0.3s ease;
+        transform: translateY(-200%);
+        /* Move it further up */
+        opacity: 0;
+        visibility: hidden;
+        /* Force hide */
+        display: block;
+        /* Ensure it exists but is hidden */
+        transition: all 0.3s ease;
         z-index: 999;
     }
 
     .main-nav.active {
         transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .main-nav ul {
