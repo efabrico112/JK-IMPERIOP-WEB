@@ -1180,8 +1180,8 @@ img {
 
     /* Mobile Header Optimizations */
     :root {
-        --header-height: 70px;
-        /* Even smaller header */
+        --header-height: 85px;
+        /* Slightly taller header to fit new logo size */
     }
 
     .site-header .container {
@@ -1196,13 +1196,13 @@ img {
     }
 
     .logo-img {
-        height: 40px;
-        /* Smaller logo */
+        height: 55px;
+        /* Bigger logo (was 40px) */
     }
 
     .brand-text-img {
-        height: 35px;
-        /* Much smaller brand text to fit */
+        height: 55px;
+        /* Bigger text (was 35px) */
         margin-top: 2px;
     }
 
@@ -1305,8 +1305,8 @@ img {
     }
 
     .modal-image {
-        height: 250px;
-        /* Smaller image */
+        height: 200px;
+        /* Even smaller image */
         min-width: auto;
     }
 
@@ -1317,8 +1317,10 @@ img {
 
     /* Fix for About Section Whitespace */
     #about .image-content {
-        min-height: 250px !important;
-        /* Override inline 400px */
+        min-height: 200px !important;
+        /* Smaller height for mobile */
+        height: 200px;
+        /* Force fix height */
     }
 }
 
@@ -1328,8 +1330,15 @@ img {
     }
 
     .search-container {
-        display: flex;
-        /* Show search on mobile */
+        display: flex !important;
+        /* Force show */
+        align-items: center;
+    }
+
+    .search-container .btn-icon {
+        display: block !important;
+        color: var(--color-primary);
+        font-size: 1.2rem;
     }
 
     .hero-content h1 {
