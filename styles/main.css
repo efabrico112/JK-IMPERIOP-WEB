@@ -1441,6 +1441,14 @@ img {
         padding: 10px;
     }
 
+    /* Mobile Badge/Title adjustments */
+    .badge {
+        font-size: 0.6rem;
+        padding: 3px 6px;
+        top: 5px;
+        left: 5px;
+    }
+
     .product-title {
         font-size: 0.9rem;
     }
@@ -1489,76 +1497,79 @@ img {
     }
 
     /* Mobile Search Overhaul */
-    /* Mobile Search Redesign v4.0 (Full Screen Overlay) */
+    /* Mobile Search v5.0 (Simple Bar Below Header) */
     .search-container {
         position: static;
     }
 
-    /* The Input Bar - Takes over Header */
     #search-input {
-        position: fixed;
-        top: 0;
+        position: absolute;
+        /* Not fixed, flows with header */
+        top: 60px;
+        /* Below header */
         left: 0;
-        width: 100vw;
-        height: 70px;
-        /* Taller touch target */
-        background: #ffffff;
-        padding: 0 20px 0 60px;
-        /* Space for icon on left */
+        width: 100%;
+        height: 50px;
+        background: white;
+        padding: 5px 15px;
         border: none;
-        border-bottom: 1px solid #ddd;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        z-index: 10000;
-        /* Max z-index */
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        z-index: 900;
+        /* Below modal but above content */
         display: none;
-        opacity: 0;
-        font-size: 1.2rem;
-        border-radius: 0;
-        transition: all 0.2s ease-out;
+        font-size: 0.95rem;
         color: #333;
+        border-radius: 0;
     }
 
     #search-input.active {
         display: block;
-        opacity: 1;
+        animation: slideDown 0.2s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 
     /* Force search icon to be visible and correctly placed on mobile */
-    /* The Icon - Fixed on top of input */
+    /* The Icon - Reset to standard relative/absolute inside header */
     #search-btn {
-        position: fixed;
-        /* Fixed relative to viewport */
-        top: 15px;
-        left: 15px;
-        z-index: 10001;
-        /* Above input */
+        position: relative;
+        top: auto;
+        left: auto;
+        z-index: 901;
         width: 40px;
         height: 40px;
-        background: transparent;
-        border: none;
-        pointer-events: auto;
     }
 
-    /* The Results - Full Screen Below Input */
+    /* The Results - Dropdown below input */
     .search-results {
-        position: fixed !important;
-        top: 70px !important;
+        position: absolute !important;
+        top: 110px !important;
+        /* Header (60) + Input (50) */
         left: 0 !important;
-        width: 100vw !important;
-        height: calc(100vh - 70px) !important;
-        max-height: none !important;
-        background: #ffffff !important;
-        z-index: 9999 !important;
-        padding: 20px !important;
-        overflow-y: auto !important;
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: 60vh !important;
+        background: white !important;
+        z-index: 899 !important;
+        padding: 10px !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid #eee !important;
     }
 
-    /* Hide Body Scroll when active */
     body.search-active {
-        overflow: hidden;
+        overflow: auto;
+        /* Re-enable scroll */
     }
 
     .hero-content h1 {
