@@ -481,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Toggle Search Bar
         // Toggle Search Overlay
         searchBtn.addEventListener('click', () => {
+            console.log('Search button clicked'); // Debugging
             const isMobile = window.innerWidth <= 768;
 
             if (isMobile) {
