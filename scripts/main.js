@@ -337,12 +337,6 @@ function changeLanguage(lang) {
         window.updateCartUI();
     }
 
-    // Close Language Selector (Mobile Fix)
-    const langContainer = document.querySelector('.lang-floating-container');
-    if (langContainer) {
-        langContainer.classList.remove('active');
-    }
-
     // Dynamic Content
     updateDynamicContent();
 }
@@ -417,22 +411,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (filtered.length > 0) {
                 resultsContainer.style.display = 'block';
                 filtered.forEach(product => {
-                    // Use global currency config for consistency
-                    const config = currencyConfig[currentLang] || currencyConfig['es'];
-                    let displayPrice;
-
-                    if (config.currency === 'COP') {
-                        displayPrice = new Intl.NumberFormat('es-CO').format(config.price);
-                    } else {
-                        displayPrice = config.price.toFixed(2);
-                    }
-                    const finalPrice = `${config.symbol} ${displayPrice} ${config.suffix}`;
-
-                    // Safe Translation Lookup
-                    const stemsKey = 'stems_label';
-                    const stemsLabel = (translations[currentLang] && translations[currentLang][stemsKey])
-                        ? translations[currentLang][stemsKey]
-                        : '24 Tallos';
+                    const price = window.currencyConfig ?
+                        (window.currencyConfig[currentLang]?.symbol + ' ' + window.currencyConfig[currentLang]?.price) :
+                        '$' + product.price;
 
                     const item = document.createElement('div');
                     item.className = 'search-item';
@@ -440,8 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img src="${product.image}" alt="${product.name}">
                         <div class="search-item-info">
                             <h4>${product.name}</h4>
-                            <p>${product.type} (${stemsLabel})</p>
-                            <span class="search-price">${finalPrice}</span>
+                            <p>${product.type} (${translations[currentLang].stems_label || '24 Tallos'})</p>
+                            <span>${price}</span>
                         </div>
                     `;
                     item.addEventListener('click', () => {
@@ -472,12 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchInput.classList.toggle('active');
                 if (searchInput.classList.contains('active')) {
                     searchInput.focus();
-                    document.body.classList.add('search-active');
-
-                    // Mobile Specific: Move icon or ensure visibility
-                    if (window.innerWidth <= 480) {
-                        // Optional: could manipulate DOM, but CSS z-index should handle it.
-                    }
+                    document.body.classList.add('search-active'); // Enable Focus Mode
                 } else {
                     document.body.classList.remove('search-active');
                 }
@@ -1237,24 +1213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- Language Selector Toggle (Mobile & Desktop) ---
-    const langBtn = document.querySelector('.lang-toggle-btn');
-    const langContainer = document.querySelector('.lang-floating-container');
-
-    if (langBtn && langContainer) {
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent closing immediately
-            langContainer.classList.toggle('active');
-        });
-
-        // Close when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!langContainer.contains(e.target)) {
-                langContainer.classList.remove('active');
-            }
-        });
-    }
-
+    // Initial Render
     // Initial Render
     changeLanguage(currentLang);
+
 });
