@@ -34,16 +34,28 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#hero">Inicio</a></li>
-                    <li><a href="#about">Nosotros</a></li>
-                    <li><a href="#shop-retail">Catálogo</a></li>
-                    <li><a href="#shop-wholesale">Mayoristas</a></li>
-                    <li><a href="contact.html">Contacto</a></li>
+                    <li><a href="#hero" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
+                    <li><a href="#shop-retail" data-i18n="nav_catalog">Catálogo</a></li>
+                    <li><a href="#shop-wholesale" data-i18n="nav_wholesale">Mayoristas</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact">Contacto</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <button class="lang-btn">🌐 ES</button>
+                    <div class="lang-dropdown">
+                        <span onclick="changeLanguage('es')">🇪🇸 ES</span>
+                        <span onclick="changeLanguage('en')">🇺🇸 EN</span>
+                        <span onclick="changeLanguage('pt')">🇧🇷 PT</span>
+                        <span onclick="changeLanguage('it')">🇮🇹 IT</span>
+                        <span onclick="changeLanguage('de')">🇩🇪 DE</span>
+                    </div>
+                </div>
+
                 <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Buscar flores...">
+                    <input type="text" id="search-input" placeholder="Buscar flores..." data-i18n="search_placeholder">
                     <button id="search-btn" class="btn-icon" aria-label="Buscar">🔍</button>
                     <div id="search-results" class="search-results"></div>
                 </div>
@@ -86,18 +98,20 @@
             <div class="slide active"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_24.jpg?v=1770663823');">
                 <div class="hero-content">
-                    <h1 class="fade-in-up">Elegancia Natural</h1>
-                    <p class="fade-in-up delay-1">Flores premium para momentos inolvidables.</p>
-                    <a href="#shop-retail" class="btn btn-primary fade-in-up delay-2">Ver Colección</a>
+                    <h1 class="fade-in-up" data-i18n="hero_title">Elegancia Natural</h1>
+                    <p class="fade-in-up delay-1" data-i18n="hero_subtitle">Flores premium para momentos inolvidables.
+                    </p>
+                    <a href="#shop-retail" class="btn btn-primary fade-in-up delay-2" data-i18n="hero_btn">Ver
+                        Colección</a>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
             <div class="slide"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_25.jpg?v=1770663823');">
                 <div class="hero-content">
-                    <h1>Calidad Exportación</h1>
-                    <p>Directo de la sabana de Bogotá a tus manos.</p>
-                    <a href="#shop-wholesale" class="btn btn-outline">Mayoristas</a>
+                    <h1 data-i18n="hero_title_2">Calidad Exportación</h1>
+                    <p data-i18n="hero_subtitle_2">Directo de la sabana de Bogotá a tus manos.</p>
+                    <a href="#shop-wholesale" class="btn btn-outline" data-i18n="nav_wholesale">Mayoristas</a>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
@@ -319,21 +333,22 @@
                     <h2 id="modal-title">Nombre Flor</h2>
                     <p id="modal-type" class="text-muted">Variedad</p>
                     <div class="modal-section">
-                        <h4>📝 Descripción</h4>
+                        <h4 data-i18n="modal_desc">📝 Descripción</h4>
                         <p id="modal-desc">Descripción...</p>
                     </div>
                     <div class="modal-section">
-                        <h4>🎉 Ocasión Perfecta</h4>
+                        <h4 data-i18n="modal_occasion">🎉 Ocasión Perfecta</h4>
                         <p id="modal-occasion">Ocasión...</p>
                     </div>
                     <div class="modal-section">
-                        <h4>💧 Manual de Cuidado</h4>
+                        <h4 data-i18n="modal_care">💧 Manual de Cuidado</h4>
                         <ul id="modal-care">
                             <li>Cortar tallos 2cm en diagonal.</li>
                             <li>Cambiar agua cada 2 días.</li>
                         </ul>
                     </div>
-                    <button class="btn btn-primary" id="modal-add-cart">Agregar al Carrito</button>
+                    <button class="btn btn-primary" id="modal-add-cart" data-i18n="modal_add">Agregar al
+                        Carrito</button>
                 </div>
             </div>
         </div>

@@ -1,4 +1,152 @@
+// --- INTERNATIONALIZATION (i18n) ---
+const translations = {
+    es: {
+        nav_home: "Inicio",
+        nav_about: "Nosotros",
+        nav_catalog: "Catálogo",
+        nav_wholesale: "Mayoristas",
+        nav_contact: "Contacto",
+        search_placeholder: "Buscar flores...",
+        hero_title: "Elegancia Natural",
+        hero_subtitle: "Flores premium para momentos inolvidables.",
+        hero_btn: "Ver Colección",
+        hero_title_2: "Calidad Exportación",
+        hero_subtitle_2: "Directo de la sabana de Bogotá a tus manos.",
+        cart_title: "Tu Carrito 🌸",
+        cart_empty: "Tu carrito está vacío.",
+        cart_checkout: "Confirmar Pedido (WhatsApp)",
+        modal_desc: "📝 Descripción",
+        modal_occasion: "🎉 Ocasión Perfecta",
+        modal_care: "💧 Manual de Cuidado",
+        modal_add: "Agregar al Carrito",
+        btn_add: "Agregar"
+    },
+    en: {
+        nav_home: "Home",
+        nav_about: "About Us",
+        nav_catalog: "Catalog",
+        nav_wholesale: "Wholesale",
+        nav_contact: "Contact",
+        search_placeholder: "Search flowers...",
+        hero_title: "Natural Elegance",
+        hero_subtitle: "Premium flowers for unforgettable moments.",
+        hero_btn: "View Collection",
+        hero_title_2: "Export Quality",
+        hero_subtitle_2: "Direct from the Bogota savanna to your hands.",
+        cart_title: "Your Cart 🌸",
+        cart_empty: "Your cart is empty.",
+        cart_checkout: "Checkout (WhatsApp)",
+        modal_desc: "📝 Description",
+        modal_occasion: "🎉 Perfect Occasion",
+        modal_care: "💧 Care Instructions",
+        modal_add: "Add to Cart",
+        btn_add: "Add"
+    },
+    pt: {
+        nav_home: "Início",
+        nav_about: "Sobre Nós",
+        nav_catalog: "Catálogo",
+        nav_wholesale: "Atacado",
+        nav_contact: "Contato",
+        search_placeholder: "Buscar flores...",
+        hero_title: "Elegância Natural",
+        hero_subtitle: "Flores premium para momentos inesquecíveis.",
+        hero_btn: "Ver Coleção",
+        hero_title_2: "Qualidade de Exportação",
+        hero_subtitle_2: "Direto da savana de Bogotá para suas mãos.",
+        cart_title: "Seu Carrinho 🌸",
+        cart_empty: "Seu carrinho está vazio.",
+        cart_checkout: "Finalizar Pedido (WhatsApp)",
+        modal_desc: "📝 Descrição",
+        modal_occasion: "🎉 Ocasião Perfeita",
+        modal_care: "💧 Instruções de Cuidado",
+        modal_add: "Adicionar ao Carrinho",
+        btn_add: "Adicionar"
+    },
+    it: {
+        nav_home: "Home",
+        nav_about: "Chi Siamo",
+        nav_catalog: "Catalogo",
+        nav_wholesale: "Ingrosso",
+        nav_contact: "Contatto",
+        search_placeholder: "Cerca fiori...",
+        hero_title: "Eleganza Naturale",
+        hero_subtitle: "Fiori premium per momenti indimenticabili.",
+        hero_btn: "Vedi Collezione",
+        hero_title_2: "Qualità Export",
+        hero_subtitle_2: "Direttamente dalla savana di Bogotà alle tue mani.",
+        cart_title: "Il Tuo Carrello 🌸",
+        cart_empty: "Il tuo carrello è vuoto.",
+        cart_checkout: "Ordina (WhatsApp)",
+        modal_desc: "📝 Descrizione",
+        modal_occasion: "🎉 Occasione Perfetta",
+        modal_care: "💧 Istruzioni per la Cura",
+        modal_add: "Aggiungi al Carrello",
+        btn_add: "Aggiungi"
+    },
+    de: {
+        nav_home: "Startseite",
+        nav_about: "Über Uns",
+        nav_catalog: "Katalog",
+        nav_wholesale: "Großhandel",
+        nav_contact: "Kontakt",
+        search_placeholder: "Blumen suchen...",
+        hero_title: "Natürliche Eleganz",
+        hero_subtitle: "Premium-Blumen für unvergessliche Momente.",
+        hero_btn: "Kollektion ansehen",
+        hero_title_2: "Exportqualität",
+        hero_subtitle_2: "Direkt aus der Savanne von Bogota zu Ihnen.",
+        cart_title: "Ihr Warenkorb 🌸",
+        cart_empty: "Ihr Warenkorb ist leer.",
+        cart_checkout: "Bestellung bestätigen (WhatsApp)",
+        modal_desc: "📝 Beschreibung",
+        modal_occasion: "🎉 Perfekter Anlass",
+        modal_care: "💧 Pflegehinweise",
+        modal_add: "In den Warenkorb",
+        btn_add: "Hinzufügen"
+    }
+};
+
+let currentLang = localStorage.getItem('siteLang') || 'es';
+
+function changeLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('siteLang', lang);
+
+    // Update Button Text
+    const langBtn = document.querySelector('.lang-btn');
+    const flags = { es: '🌐 ES', en: '🇺🇸 EN', pt: '🇧🇷 PT', it: '🇮🇹 IT', de: '🇩🇪 DE' };
+    if (langBtn) langBtn.innerText = flags[lang];
+
+    // Translate Elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            if (el.tagName === 'INPUT') {
+                el.placeholder = translations[lang][key];
+            } else {
+                el.innerText = translations[lang][key];
+            }
+        }
+    });
+
+    // Translate Dynamic Elements (Cart, etc. if needed)
+    updateDynamicContent();
+}
+
+function updateDynamicContent() {
+    // Helper to update stuff like cart headers that might be dynamically rendered
+    const cartTitle = document.querySelector('.sidebar-header h2');
+    if (cartTitle) cartTitle.innerText = translations[currentLang].cart_title;
+
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) checkoutBtn.innerText = translations[currentLang].cart_checkout;
+}
+
+// Initialize Language on Load
 document.addEventListener('DOMContentLoaded', () => {
+    changeLanguage(currentLang);
+    // ... existing initialization ...
     console.log('JK IMPERIO Loaded');
 
     // Mobile Menu Toggle
