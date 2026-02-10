@@ -478,30 +478,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     if (searchBtn && searchInput && searchResults) {
-        // Search Toggle Logic (Mobile Overlay vs Desktop Focus)
+        // Search Toggle Logic (Classic)
         if (searchBtn) {
             searchBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent jump
-
-                const isMobile = window.innerWidth <= 992; // Match CSS media query
-
-                if (isMobile) {
-                    // Toggle Mobile Overlay Mode
-                    document.body.classList.toggle('search-active');
-                    const isActive = document.body.classList.contains('search-active');
-
-                    if (isActive) {
-                        searchInput.focus();
-                        // Optional: Create dynamic close button or use searchBtn as toggle
-                        // For now, clicking icon again closes it
-                    } else {
-                        searchInput.blur();
-                        searchInput.value = ''; // Clear
-                        searchResults.style.display = 'none';
-                    }
-                } else {
-                    // Desktop: Just focus input
+                e.preventDefault();
+                searchInput.classList.toggle('active');
+                if (searchInput.classList.contains('active')) {
                     searchInput.focus();
+                } else {
+                    searchResults.style.display = 'none';
                 }
             });
         }
