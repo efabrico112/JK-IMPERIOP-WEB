@@ -428,13 +428,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     const finalPrice = `${config.symbol} ${displayPrice} ${config.suffix}`;
 
+                    // Safe Translation Lookup
+                    const stemsKey = 'stems_label';
+                    const stemsLabel = (translations[currentLang] && translations[currentLang][stemsKey])
+                        ? translations[currentLang][stemsKey]
+                        : '24 Tallos';
+
                     const item = document.createElement('div');
                     item.className = 'search-item';
                     item.innerHTML = `
                         <img src="${product.image}" alt="${product.name}">
                         <div class="search-item-info">
                             <h4>${product.name}</h4>
-                            <p>${product.type} (${translations[currentLang].stems_label || '24 Tallos'})</p>
+                            <p>${product.type} (${stemsLabel})</p>
                             <span class="search-price">${finalPrice}</span>
                         </div>
                     `;
@@ -466,7 +472,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchInput.classList.toggle('active');
                 if (searchInput.classList.contains('active')) {
                     searchInput.focus();
-                    document.body.classList.add('search-active'); // Enable Focus Mode
+                    document.body.classList.add('search-active');
+
+                    // Mobile Specific: Move icon or ensure visibility
+                    if (window.innerWidth <= 480) {
+                        // Optional: could manipulate DOM, but CSS z-index should handle it.
+                    }
                 } else {
                     document.body.classList.remove('search-active');
                 }
