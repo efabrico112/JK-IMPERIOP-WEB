@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK IMPERIO - Catálogo Mayorista Elite 2026</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfcf8;
+            /* Cream/Bone */
+            --primary-dark: #143625;
+            /* Deep Green */
+            --gold: #c6a664;
+            /* Muted Gold */
+            --text-main: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-color);
+            font-family: 'Lato', sans-serif;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296.5mm;
+            /* Precise A4 */
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-color);
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- PAGE 1: COVER --- */
+        .cover-page {
+            background-color: var(--primary-dark);
+            color: var(--gold);
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .cover-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid rgba(198, 166, 100, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .cover-top {
+            margin-top: 40px;
+        }
+
+        .cover-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 5.5rem;
+            letter-spacing: 5px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .cover-sub {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--gold);
+        }
+
+        .cover-center-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            margin: 40px auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .cover-footer {
+            border-top: 1px solid rgba(198, 166, 100, 0.3);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- PAGE 2: BUSINESS INTELLIGENCE --- */
+        .business-page {
+            padding: 50px 40px;
+        }
+
+        .biz-header {
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .biz-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+        }
+
+        .biz-sub {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Profit Table */
+        .profit-table-container {
+            background: white;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+        }
+
+        .pt-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .start-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .start-table th {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 2px solid var(--gold);
+            color: var(--primary-dark);
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+        }
+
+        .start-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .start-table td strong {
+            color: var(--primary-dark);
+        }
+
+        .highlight-row {
+            background-color: #f9fdfa;
+        }
+
+        .highlight-val {
+            color: var(--primary-dark);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .profit-per-flower {
+            display: flex;
+            justify-content: space-between;
+            background: var(--primary-dark);
+            color: white;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+
+        .ppf-item {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            flex: 1;
+        }
+
+        .ppf-item:last-child {
+            border: none;
+        }
+
+        .ppf-val {
+            font-size: 1.8rem;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+        }
+
+        .ppf-lbl {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Advantages Grid */
+        .adv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: auto;
+        }
+
+        .adv-card {
+            background: white;
+            padding: 15px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .adv-head {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        .adv-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        /* --- CATALOG PAGES --- */
+        .catalog-page {
+            padding: 30px 40px;
+        }
+
+        .cp-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            align-items: flex-end;
+        }
+
+        .cp-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+        }
+
+        /* Updated Grid for 15 items */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            /* Tighter gap */
+            grid-auto-rows: min-content;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #eee;
+            /* Reduced height to fit 5 rows */
+            height: 205px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s;
+            overflow: hidden;
+            /* Prevent overflow */
+        }
+
+        .c-img-box {
+            height: 135px;
+            /* Adjusted image height */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .c-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .c-info {
+            flex: 1;
+            padding: 8px;
+            /* Tighter padding */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically */
+            position: relative;
+        }
+
+        /* Gold line accent */
+        .c-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .c-name {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            /* Slightly smaller font */
+            margin-top: 2px;
+            line-height: 1.1;
+            font-weight: 600;
+        }
+
+        .c-type {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .c-price {
+            font-size: 0.85rem;
+            color: #333;
+        }
+
+        .c-price strong {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .footer-note {
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .final-cta {
+            margin-top: auto;
+            padding: 15px;
+            background: var(--primary-dark);
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 0;
+            border-radius: 4px;
+        }
+
+        /* --- UTILS --- */
+        .no-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+
+        .btn {
+            background: var(--primary-dark);
+            color: var(--gold);
+            padding: 15px 30px;
+            border: 1px solid var(--gold);
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            body,
+            .page {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="no-print">
+        <button class="btn" onclick="window.print()">🖨️ Imprimir Catálogo Elite</button>
+    </div>
+
+    <!-- PAGE 1: PORTADA -->
+    <div class="page cover-page">
+        <div class="cover-border">
+            <div class="cover-top">
+                <div class="cover-logo">JK IMPERIO</div>
+                <div class="cover-sub">Colección Mayorista</div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=2187" class="cover-center-img">
+
+            <div style="font-family:'Cinzel'; font-size:3rem; color:white;">2026</div>
+
+            <div class="cover-footer">
+                <span>www.jkimperio.com</span>
+                <span>Bogotá - Colombia</span>
+                <span>+57 300 2963698</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: BUSINESS & PROFITS -->
+    <div class="page business-page">
+        <div class="biz-header">
+            <div class="biz-title">Potencia tu Rentabilidad</div>
+            <div class="biz-sub">Análisis financiero para floristas y mayoristas inteligentes.</div>
+        </div>
+
+        <div class="profit-table-container">
+            <div class="pt-title">Estructura de Ganancias (Por Docena)</div>
+            <table class="start-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Precio Promedio</th>
+                        <th>Tu Costo JK</th>
+                        <th>Tu Ahorro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Costo x Docena</td>
+                        <td>$40.000 COP</td>
+                        <td><strong>$30.000 COP</strong></td>
+                        <td class="highlight-val">$10.000 COP</td>
+                    </tr>
+                    <tr>
+                        <td>Costo x Tallo</td>
+                        <td>$3.333 COP</td>
+                        <td><strong>$2.500 COP</strong></td>
+                        <td class="highlight-val">$833 COP</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="profit-per-flower">
+            <div class="ppf-item">
+                <div class="ppf-val">$5.000+</div>
+                <div class="ppf-lbl">Precio Venta Sugerido (Tallo)</div>
+            </div>
+            <div class="ppf-item">
+                <div class="ppf-val">100%</div>
+                <div class="ppf-lbl">Margen de Ganancia</div>
+            </div>
+            <div class="ppf-item">
+                <div class="ppf-val">$2.500</div>
+                <div class="ppf-lbl">Ganancia Neta x Flor</div>
+            </div>
+        </div>
+
+        <div class="adv-grid">
+            <div class="adv-card">
+                <div class="adv-head">Compra Inteligente</div>
+                <div class="adv-desc">Al comprar más de 12 docenas, desbloqueas el precio mayorista de $30k. Maximiza tu
+                    inventario con menor inversión.</div>
+            </div>
+            <div class="adv-card">
+                <div class="adv-head">Calidad Superior</div>
+                <div class="adv-desc">Nuestras rosas tienen una vida en florero 30% superior al promedio de mercado
+                    gracias a nuestra cadena de frío.</div>
+            </div>
+            <div class="adv-card">
+                <div class="adv-head">Surtido Premium</div>
+                <div class="adv-desc">Desde la clásica Freedom roja hasta las exóticas Moody Blues. Variedad que
+                    fideliza a tus clientes.</div>
+            </div>
+            <div class="adv-card">
+                <div class="adv-head">Garantía JK</div>
+                <div class="adv-desc">Reemplazo inmediato si el producto no cumple con nuestros estándares de
+                    exportación.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: CATALOG PART 1 (15 Items) -->
+    <div class="page catalog-page">
+        <div class="cp-header">
+            <div class="cp-title">Colección Exclusiva</div>
+            <div style="color:#aaa;">03 / 04</div>
+        </div>
+        <div class="gallery" id="grid-1"></div>
+        <div class="footer-note">Precios sujetos a disponibilidad y temporada.</div>
+    </div>
+
+    <!-- PAGE 4: CATALOG PART 2 (15 Items) -->
+    <div class="page catalog-page">
+        <div class="cp-header">
+            <div class="cp-title">Colección Premium</div>
+            <div style="color:#aaa;">04 / 04</div>
+        </div>
+        <div class="gallery" id="grid-2"></div>
+
+        <div class="final-cta">
+            <div style="font-family:'Cinzel'; font-size:1.2rem;">¡Haz tu Pedido Mayorista!</div>
+            <div style="font-size:1.1rem; font-weight:700;">WhatsApp: +57 300 2963698</div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            // Reds (3)
+            { name: 'Velvet Night', type: 'Rosa Freedom', image: 'https://casuparoses.com/wp-content/uploads/2024/12/freedom.jpg', category: 'Rojas' },
+            { name: 'Crimson Explorer', type: 'Rosa Explorer', image: 'https://casuparoses.com/wp-content/uploads/2024/12/freedom.jpg', category: 'Rojas' },
+            { name: 'Royal Red', type: 'Rosa Red France', image: 'https://casuparoses.com/wp-content/uploads/2024/11/Ragazza.jpg', category: 'Rojas' },
+
+            // Whites (4)
+            { name: 'Moonlight', type: 'Rosa Mondial', image: 'https://casuparoses.com/wp-content/uploads/2024/11/Mondial.jpg', category: 'Blancas' },
+            { name: 'Pure Snow', type: 'Rosa Playa Blanca', image: 'https://casuparoses.com/wp-content/uploads/2024/12/playa_blanca.jpg', category: 'Blancas' },
+            { name: 'Ivory Dream', type: 'Rosa Vendela', image: 'https://casuparoses.com/wp-content/uploads/2024/11/vendela.jpg', category: 'Blancas' },
+            { name: 'White Cloud', type: 'Rosa White Chocolate', image: 'https://casuparoses.com/wp-content/uploads/2024/11/Snow-Bliss.jpg', category: 'Blancas' },
+
+            // Pinks (9)
+            { name: 'Pink Floyd', type: 'Rosa Pink Floyd', image: 'https://casuparoses.com/wp-content/uploads/2024/12/Pink-Floyd.jpg', category: 'Rosadas' },
+            { name: 'Sweet Berry', type: 'Rosa Queen Berry', image: 'https://casuparoses.com/wp-content/uploads/2024/12/Queen-Barry.jpg', category: 'Rosadas' },
+            { name: 'Rosalinda', type: 'Rosa Pink Mondial', image: 'https://casuparoses.com/wp-content/uploads/2024/11/pink-mondial.jpg', category: 'Rosadas' },
+            { name: 'Fuchsia Pop', type: 'Rosa Topaz', image: 'https://casuparoses.com/wp-content/uploads/2024/12/Tabatha_01.jpg', category: 'Rosadas' },
+            { name: 'Blush Kiss', type: 'Rosa Jesika', image: 'https://casuparoses.com/wp-content/uploads/2024/12/jesika.jpg', category: 'Rosadas' },
+            { name: 'Candy Crush', type: 'Rosa Frutetto', image: 'https://casuparoses.com/wp-content/uploads/2024/12/frutetto.jpg', category: 'Rosadas' },
+            { name: 'Soft Petal', type: 'Rosa Blessing', image: 'https://casuparoses.com/wp-content/uploads/2024/12/blessing.jpg', category: 'Rosadas' },
+            { name: 'Vibrant Soul', type: 'Rosa Alive', image: 'https://casuparoses.com/wp-content/uploads/2024/12/Alive-2.jpg', category: 'Rosadas' },
+            { name: 'Morning Dew', type: 'Rosa New Face', image: 'https://casuparoses.com/wp-content/uploads/2024/12/new_face.jpg', category: 'Rosadas' },
+
+            // Yellows (5)
+            { name: 'Solar Flare', type: 'Rosa High & Magic', image: 'https://casuparoses.com/wp-content/uploads/2024/11/high-and-magic.jpg', category: 'Amarillas' },
+            { name: 'Sunset Glow', type: 'Rosa Orange Crush', image: 'https://casuparoses.com/wp-content/uploads/2024/11/orange-crush.jpg', category: 'Amarillas' },
+            { name: 'Golden Hour', type: 'Rosa Brighton', image: 'https://casuparoses.com/wp-content/uploads/2024/11/Super-Sun_01.jpg', category: 'Amarillas' },
+            { name: 'High Pure', type: 'Rosa High Pure', image: 'https://casuparoses.com/wp-content/uploads/2024/12/high-and-pure.jpg', category: 'Amarillas' },
+            { name: 'Stardust', type: 'Rosa Stardust', image: 'https://casuparoses.com/wp-content/uploads/2024/12/stardust.jpg', category: 'Amarillas' },
+
+            // Vintage (9)
+            { name: 'Mystic Purple', type: 'Rosa Moody Blues', image: 'https://casuparoses.com/wp-content/uploads/2024/11/moody-blues.jpg', category: 'Vintage/Exótica' },
+            { name: 'Lavender Dream', type: 'Rosa Jacaranda', image: 'https://casuparoses.com/wp-content/uploads/2024/11/jacaranda.jpg', category: 'Vintage/Exótica' },
+            { name: 'Blueberry Frost', type: 'Rosa Blueberry', image: 'https://casuparoses.com/wp-content/uploads/2024/12/blueberry_02-1.jpg', category: 'Vintage/Exótica' },
+            { name: 'Ocean Mist', type: 'Rosa Kendal', image: 'https://casuparoses.com/wp-content/uploads/2024/11/kendal.jpg', category: 'Vintage/Exótica' },
+            { name: 'Vintage Peach', type: 'Rosa Kahala', image: 'https://casuparoses.com/wp-content/uploads/2024/12/Almah_01.jpg', category: 'Vintage/Exótica' },
+            { name: 'Sandstorm', type: 'Rosa Quicksand', image: 'https://casuparoses.com/wp-content/uploads/2024/12/cuenca.jpg', category: 'Vintage/Exótica' },
+            { name: 'Sweet Nectar', type: 'Rosa Be Sweet', image: 'https://casuparoses.com/wp-content/uploads/2024/12/besweet.jpg', category: 'Vintage/Exótica' },
+            { name: 'Impressionist', type: 'Rosa Impression', image: 'https://casuparoses.com/wp-content/uploads/2024/11/impression.jpg', category: 'Vintage/Exótica' },
+            { name: 'Gemstone', type: 'Rosa Gemstone', image: 'https://casuparoses.com/wp-content/uploads/2024/11/gemstone.jpg', category: 'Vintage/Exótica' }
+        ];
+
+        // LOGIC: 15 items/page strict (Total 30 / 2 = 15)
+        const part1 = products.slice(0, 15);
+        const part2 = products.slice(15, 30);
+
+        function renderGrid(items, containerId) {
+            const container = document.getElementById(containerId);
+            items.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'card';
+
+                item.innerHTML = `
+                    <div class="c-img-box">
+                        <img src="${p.image}" class="c-img" onerror="this.src='https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=2187&auto=format&fit=crop'">
+                    </div>
+                    <div class="c-info">
+                        <div>
+                            <div class="c-name">${p.name}</div>
+                            <div class="c-type">${p.type}</div>
+                        </div>
+                        <div class="c-price"><strong>$30.000</strong></div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        renderGrid(part1, 'grid-1');
+        renderGrid(part2, 'grid-2');
+    </script>
+</body>
+
+</html>
