@@ -46,7 +46,7 @@
     --spacing-xl: 6rem;
 
     --container-width: 1200px;
-    --header-height: 120px;
+    --header-height: 160px;
 
     /* --- Effects --- */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -197,54 +197,87 @@ img {
 /* =========================================
    MODERN SEARCH BAR
    ========================================= */
+/* Brand & Logo - Larger and Balanced */
+.logo-img {
+    height: 110px;
+    /* Larger logo */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.brand-text-img {
+    height: 140px;
+    /* Significantly larger text */
+    width: auto;
+    display: block;
+    object-fit: contain;
+    margin-left: 15px;
+    /* Space between logo and text */
+}
+
+/* =========================================
+   MODERN SEARCH BAR (MINIMALIST)
+   ========================================= */
 .search-container {
     display: flex;
     align-items: center;
     background: #fff;
-    border-radius: 8px;
-    /* Square with rounded corners */
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    /* Visible border */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    /* Pill shape */
+    padding: 5px 15px;
+    border: 1px solid #e0e0e0;
+    /* Subtle border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.search-container:hover,
+.search-container:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .search-input-modern {
     border: none;
     background: transparent;
     outline: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-text);
-    width: 150px;
-    /* Fixed width, always visible */
+    width: 200px;
+    /* Always visible and wide enough */
+    font-family: 'Outfit', sans-serif;
 }
 
 .search-btn-modern {
-    background: var(--color-primary);
-    /* Green background */
+    background: transparent;
+    /* Transparent background */
     border: none;
     cursor: pointer;
-    color: white;
-    /* White icon */
-    padding: 6px;
-    border-radius: 4px;
+    color: var(--color-text);
+    /* Dark icon */
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 5px;
-    transition: background 0.2s;
+    transition: transform 0.2s, color 0.2s;
 }
 
 .search-btn-modern:hover {
-    background-color: var(--color-primary-dark);
+    color: var(--color-primary);
+    /* Green hover */
+    transform: scale(1.1);
 }
 
 /* =========================================
    HEADER
    ========================================= */
+/* =========================================
+   HEADER
+   ========================================= */
 .site-header {
     height: var(--header-height);
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -260,32 +293,53 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 0 40px;
+    /* Reduced side padding for wider look */
+    max-width: 1400px;
+    /* Allow it to go wider */
+}
+
+/* 1-2-1 Layout Strategy for Perfect Centering */
+.logo {
+    flex: 1;
+    /* Takes up left space */
+    display: flex;
+    justify-content: flex-start;
 }
 
 .logo a {
     display: flex;
     align-items: center;
     gap: 15px;
+    text-decoration: none;
 }
 
-.logo-img {
-    height: 55px;
-    /* Slightly smaller for elegance */
-    width: auto;
-    object-fit: contain;
+.main-nav {
+    flex: 2;
+    /* Takes up center space */
+    display: flex;
+    justify-content: center;
 }
 
-.brand-text-img {
-    height: 38px;
-    /* Balanced height relative to logo */
-    width: auto;
-    margin-top: 2px;
-    /* Optical center adjustment */
-    display: block;
-    object-fit: contain;
-    /* Ensure it doesn't get too small on mobile */
-    min-height: 30px;
+.header-actions {
+    flex: 1;
+    /* Takes up right space */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    position: relative;
 }
+
+/* Responsive Nav for smaller screens */
+@media (max-width: 1100px) {
+    .main-nav {
+        display: none;
+        /* Hide on smaller desktops/tablets, show hamburger */
+    }
+}
+
+/* Removed duplicate logo/brand definitions to use the larger ones above */
 
 .main-nav ul {
     display: flex;
@@ -1686,53 +1740,348 @@ img {
     }
 }
 
-/* --- Desktop Search Optimizations --- */
-@media (min-width: 769px) {
-    .search-container {
-        position: relative;
+/* --- Old Desktop Search Optimizations Removed (Superseded by Mega-Search at bottom) --- */
+
+/* =========================================
+   LANGUAGE SELECTOR (BOTTOM LEFT - HORIZONTAL)
+   ========================================= */
+.lang-floating-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    /* Removed flex-direction reverse to position manually */
+}
+
+/* The Main Bubble Button */
+.lang-toggle-btn {
+    width: 45px;
+    /* Smaller, minimalist */
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold);
+    /* Gold border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    background: white;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10001;
+    /* Above the list */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lang-toggle-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.lang-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(198, 166, 100, 0.3);
+    /* Gold glow */
+}
+
+/* The Horizontal List */
+.lang-options {
+    position: absolute;
+    left: 10px;
+    /* Start behind the button */
+    bottom: 2px;
+    /* Vertically centered relative to button 45px height */
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    /* Horizontal */
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px 0 50px;
+    /* Left padding pushes content out from under button */
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    /* Animation Initial State */
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: left center;
+    /* Grow from left */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 10000;
+    /* Behind button */
+}
+
+/* Expand on Hover of container */
+.lang-floating-container:hover .lang-options {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleX(1);
+    padding-left: 55px;
+    /* Ensure space for the main button */
+}
+
+.lang-option {
+    background: none;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lang-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lang-option:hover {
+    transform: translateY(-2px) scale(1.1);
+    border: 2px solid var(--color-gold);
+    /* Gold highlight on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   ENHANCED SEARCH DROPDOWN & LAYOUT FIXES
+   ========================================= */
+
+/* =========================================
+   MEGA-SEARCH (FULL WIDTH GRID - COMPACT HORIZONTAL)
+   ========================================= */
+
+/* The Container - Spans full width below header */
+.search-results {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100vw;
+    height: auto;
+    max-height: 80vh;
+    background: white;
+    border-top: 1px solid #f0f0f0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    z-index: 990;
+    /* Below header, above content */
+    padding: 30px 10%;
+    /* Wide padding */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    /* Widen cards for horizontal layout */
+    gap: 20px;
+    align-content: start;
+
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+body.search-active .search-results {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Scrollbar Styling for Results */
+.search-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: #f9f9f9;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+/* Individual Search Items - Horizontal Cards */
+.search-item {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal Layout */
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #f5f5f5;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+}
+
+.search-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: var(--color-gold);
+}
+
+/* Image on Left */
+.search-item img {
+    width: 100px;
+    /* Fixed square size */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    /* Reset */
+    box-shadow: none;
+}
+
+/* Typography & Info */
+.search-item-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-item-info h4 {
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    margin-bottom: 4px;
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.search-item-info p {
+    /* Category / Variant */
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-style: normal;
+}
+
+.search-item-info span {
+    /* Price */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+/* Fix Input Overlap: Ensure container handles it */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Search Focus Mode Adjustments (Desktop) */
+@media (min-width: 900px) {
+
+    /* SEARCH INPUT - HIDDEN BY DEFAULT (Only Icon Visible) */
+    .search-input-modern {
+        width: 40px;
+        /* Small width to sit behind icon */
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        /* Circle */
+        padding: 0;
+        height: 40px;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        font-size: 0.95rem;
+        cursor: pointer;
+        opacity: 0;
+        /* Hide text input visual */
+        pointer-events: auto;
+        /* Still clickable */
+        position: absolute;
+        /* Stack with button */
+        right: 0;
+        z-index: 11;
+        /* Above button to catch click */
     }
 
-    #search-input {
+    /* THE ICON BUTTON */
+    #search-btn {
+        position: relative;
+        /* Relative to container */
+        right: 0;
+        top: 0;
+        transform: none;
+        background: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.3s ease;
+    }
+
+    #search-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* EXPANDED STATE (On Click/Focus) */
+    .search-input-modern:focus,
+    .search-input-modern.active {
+        width: 500px;
+        /* Expand wide */
+        background: white;
+        border: 1px solid var(--color-gold);
+        border-radius: 30px;
+        /* Pill shape */
+        padding: 5px 60px 5px 20px;
+        /* Text space + Icon space */
+        opacity: 1;
+        right: 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        outline: none;
+        z-index: 12;
+        /* Bring input to front to cover any artifacts */
+    }
+
+    /* Ensure Icon stays on top visually but is inside the pill */
+    .search-input-modern:focus+#search-btn,
+    .search-input-modern.active+#search-btn {
         position: absolute;
-        right: 40px;
-        /* Left of icon */
+        right: 15px;
+        /* Move slightly left to be Inside the pill */
         top: 50%;
         transform: translateY(-50%);
-        width: 0;
-        padding: 0;
-        opacity: 0;
-        height: 40px;
-        border: 1px solid transparent;
-        background: transparent;
-        transition: all 0.3s ease;
-        z-index: 900;
         pointer-events: none;
+        /* Let input handle clicks */
+        z-index: 13;
+        /* Icon sits ON TOP of the white pill */
     }
 
-    #search-input.active {
-        width: 280px;
-        padding: 0 15px;
-        opacity: 1;
-        border-color: #e0e0e0;
-        background: white;
-        border-radius: 20px;
-        pointer-events: auto;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* SEARCH FOCUS MODE - Hide Nav */
+    body.search-active .main-nav {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-5px);
+        pointer-events: none;
+        transition: all 0.3s ease;
     }
 
-    .search-results {
-        top: 50px;
-        right: 0;
-        left: auto;
-        width: 380px;
-        max-height: 500px;
-        border-radius: 8px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .search-item img {
-        width: 60px;
-        height: 60px;
+    body.search-active .search-input-modern {
+        width: 600px;
+        /* Even wider */
     }
 }

@@ -46,7 +46,19 @@ const translations = {
         modal_care: "💧 Manual de Cuidado",
         modal_add: "Agregar al Carrito 🛒",
         btn_add: "Agregar",
-        stems_label: "24 Tallos"
+        stems_label: "24 Tallos",
+        faq_title: "Preguntas Frecuentes",
+        faq_q1: "📦 ¿Hacen envíos el mismo día?",
+        faq_a1: "Sí, para pedidos realizados antes de las 11:00 AM en Bogotá, garantizamos la entrega el mismo día. Para otras ciudades, consulta tiempos de entrega.",
+        faq_q2: "🌹 ¿Cuánto duran las rosas?",
+        faq_a2: "Nuestras rosas tipo exportación están hidratadas y tratadas para durar entre 8 y 12 días en florero, siguiendo nuestros tips de cuidado.",
+        faq_q3: "💳 ¿Qué medios de pago aceptan?",
+        faq_a3: "Aceptamos todas las tarjetas de crédito, PSE, Nequi y Daviplata para tu comodidad y seguridad.",
+        footer_slogan: "Profesionalismo y elegancia en cada pétalo.",
+        footer_nav_title: "Navegación",
+        footer_contact_title: "Contacto",
+        footer_city: "Bogotá, Colombia",
+        footer_copy: "&copy; 2026 JK IMPERIO. Todos los derechos reservados."
     },
     en: {
         nav_home: "Home",
@@ -94,10 +106,20 @@ const translations = {
         modal_care: "💧 Care Manual",
         modal_add: "Add to Cart 🛒",
         btn_add: "Add",
-        stems_label: "24 Stems"
+        stems_label: "24 Stems",
+        faq_title: "Frequently Asked Questions",
+        faq_q1: "📦 Do you offer same-day shipping?",
+        faq_a1: "Yes, for orders placed before 11:00 AM in Bogota, we guarantee same-day delivery. For other cities, please check delivery times.",
+        faq_q2: "🌹 How long do the roses last?",
+        faq_a2: "Our export-quality roses are hydrated and treated to last between 8 and 12 days in a vase, following our care tips.",
+        faq_q3: "💳 What payment methods do you accept?",
+        faq_a3: "We accept all credit cards, PSE, Nequi, and Daviplata for your convenience and security.",
+        footer_slogan: "Professionalism and elegance in every petal.",
+        footer_nav_title: "Navigation",
+        footer_contact_title: "Contact",
+        footer_city: "Bogotá, Colombia",
+        footer_copy: "&copy; 2026 JK IMPERIO. All rights reserved."
     },
-    // ... (Repeat for PT, IT, DE with placeholders or translations)
-    // For brevity in this tool call, I will include key translations for other languages too to avoid 'undefined'
     pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_catalog: "Catálogo", nav_wholesale: "Atacado", nav_contact: "Contato",
         search_placeholder: "Buscar...",
@@ -126,7 +148,19 @@ const translations = {
         filter_all: "Todas", filter_reds: "🔴 Vermelhas", filter_whites: "⚪ Brancas", filter_pinks: "🌸 Rosas", filter_yellows: "☀️ Amarelas/Laranjas", filter_vintage: "🍂 Vintage",
         wholesale_title: "Parceiros do seu Negócio", wholesale_desc: "Você tem uma floricultura ou organiza eventos? Acesse preços especiais e atendimento personalizado para compras no atacado.",
         cart_title: "Seu Carrinho 🌸", cart_empty: "Seu carrinho está vazio.", cart_checkout: "Finalizar Pedido (WhatsApp)",
-        modal_desc: "📝 Descrição", modal_occasion: "🎉 Ocasião Perfeita", modal_care: "💧 Manual de Cuidado", modal_add: "Adicionar ao Carrinho 🛒", btn_add: "Adicionar", stems_label: "24 Hastes"
+        modal_desc: "📝 Descrição", modal_occasion: "🎉 Ocasião Perfeita", modal_care: "💧 Manual de Cuidado", modal_add: "Adicionar ao Carrinho 🛒", btn_add: "Adicionar", stems_label: "24 Hastes",
+        faq_title: "Perguntas Frequentes",
+        faq_q1: "📦 Fazem entregas no mesmo dia?",
+        faq_a1: "Sim, para pedidos feitos antes das 11:00 AM em Bogotá, garantimos a entrega no mesmo dia. Para outras cidades, consulte prazos.",
+        faq_q2: "🌹 Quanto tempo duram as rosas?",
+        faq_a2: "Nossas rosas tipo exportação são tratadas para durar entre 8 e 12 dias no vaso, seguindo nossas dicas.",
+        faq_q3: "💳 Quais meios de pagamento aceitam?",
+        faq_a3: "Aceitamos todos os cartões de crédito, PSE, Nequi e Daviplata para sua comodidade.",
+        footer_slogan: "Profissionalismo e elegância em cada pétala.",
+        footer_nav_title: "Navegação",
+        footer_contact_title: "Contato",
+        footer_city: "Bogotá, Colômbia",
+        footer_copy: "&copy; 2026 JK IMPERIO. Todos os direitos reservados."
     },
     it: {
         nav_home: "Home", nav_about: "Chi Siamo", nav_catalog: "Catalogo", nav_wholesale: "Ingrosso", nav_contact: "Contatto",
@@ -156,7 +190,19 @@ const translations = {
         filter_all: "Tutti", filter_reds: "🔴 Rossi", filter_whites: "⚪ Bianchi", filter_pinks: "🌸 Rosa", filter_yellows: "☀️ Gialli/Arancioni", filter_vintage: "🍂 Vintage",
         wholesale_title: "Partner del tuo Business", wholesale_desc: "Hai un fioraio o organizzi eventi? Accedi a prezzi speciali e attenzione personalizzata per acquisti all'ingrosso.",
         cart_title: "Il Tuo Carrello 🌸", cart_empty: "Il tuo carrello è vuoto.", cart_checkout: "Ordina (WhatsApp)",
-        modal_desc: "📝 Descrizione", modal_occasion: "🎉 Occasione Perfetta", modal_care: "💧 Istruzioni Cura", modal_add: "Aggiungi al Carrello 🛒", btn_add: "Aggiungi", stems_label: "24 Steli"
+        modal_desc: "📝 Descrizione", modal_occasion: "🎉 Occasione Perfetta", modal_care: "💧 Istruzioni Cura", modal_add: "Aggiungi al Carrello 🛒", btn_add: "Aggiungi", stems_label: "24 Steli",
+        faq_title: "Domande Frequenti",
+        faq_q1: "📦 Effettuate spedizioni in giornata?",
+        faq_a1: "Sì, per ordini effettuati prima delle 11:00 AM a Bogotà, garantiamo la consegna in giornata.",
+        faq_q2: "🌹 Quanto durano le rose?",
+        faq_a2: "Le nostre rose sono trattate per durare tra 8 e 12 giorni in vaso con la cura adeguata.",
+        faq_q3: "💳 Quali metodi di pagamento accettate?",
+        faq_a3: "Accettiamo carte di credito, PSE, Nequi e Daviplata.",
+        footer_slogan: "Professionalità ed eleganza in ogni petalo.",
+        footer_nav_title: "Navigazione",
+        footer_contact_title: "Contatto",
+        footer_city: "Bogotà, Colombia",
+        footer_copy: "&copy; 2026 JK IMPERIO. Tutti i diritti riservati."
     },
     de: {
         nav_home: "Startseite", nav_about: "Über Uns", nav_catalog: "Katalog", nav_wholesale: "Großhandel", nav_contact: "Kontakt",
@@ -186,11 +232,74 @@ const translations = {
         filter_all: "Alle", filter_reds: "🔴 Rote", filter_whites: "⚪ Weiße", filter_pinks: "🌸 Rosa", filter_yellows: "☀️ Gelbe/Orange", filter_vintage: "🍂 Vintage",
         wholesale_title: "Partner Ihres Geschäfts", wholesale_desc: "Haben Sie einen Blumenladen oder organisieren Events? Greifen Sie auf Sonderpreise und personalisierte Betreuung für Großhandelseinkäufe zu.",
         cart_title: "Ihr Warenkorb 🌸", cart_empty: "Ihr Warenkorb ist leer.", cart_checkout: "Bestellung bestätigen (WhatsApp)",
-        modal_desc: "📝 Beschreibung", modal_occasion: "🎉 Perfekter Anlass", modal_care: "💧 Pflegeanleitung", modal_add: "In den Warenkorb 🛒", btn_add: "Hinzufügen", stems_label: "24 Stiele"
+        modal_desc: "📝 Beschreibung", modal_occasion: "🎉 Perfekter Anlass", modal_care: "💧 Pflegeanleitung", modal_add: "In den Warenkorb 🛒", btn_add: "Hinzufügen", stems_label: "24 Stiele",
+        faq_title: "Häufig gestellte Fragen",
+        faq_q1: "📦 Bieten Sie Lieferung am selben Tag an?",
+        faq_a1: "Ja, für Bestellungen vor 11:00 Uhr in Bogota garantieren wir die Lieferung am selben Tag.",
+        faq_q2: "🌹 Wie lange halten die Rosen?",
+        faq_a2: "Unsere Rosen halten bei richtiger Pflege zwischen 8 und 12 Tagen in der Vase.",
+        faq_q3: "💳 Welche Zahlungsmethoden akzeptieren Sie?",
+        faq_a3: "Wir akzeptieren alle Kreditkarten, PSE, Nequi und Daviplata.",
+        footer_slogan: "Professionalität und Eleganz in jedem Blütenblatt.",
+        footer_nav_title: "Navigation",
+        footer_contact_title: "Kontakt",
+        footer_city: "Bogotá, Kolumbien",
+        footer_copy: "&copy; 2026 JK IMPERIO. Alle Rechte vorbehalten."
+    },
+    fr: {
+        nav_home: "Accueil", nav_about: "À Propos", nav_catalog: "Catalogue", nav_wholesale: "Grossiste", nav_contact: "Contact",
+        search_placeholder: "Rechercher...",
+        about_title: "Notre Histoire",
+        about_p1: "Chez JK IMPERIO, nous faisons quelque chose de simple mais puissant : nous livrons des fleurs qui tiennent leurs promesses.",
+        shop_title: "Nos Fleurs", shop_subtitle: "La sélection la plus exclusive pour vos moments spéciaux.",
+        wholesale_btn: "DEMANDER LE CATALOGUE GROSSISTE",
+        hero_title: "Élégance Naturelle",
+        hero_subtitle: "Des fleurs premium pour des moments inoubliables.",
+        hero_btn: "Voir la Collection",
+        hero_title_2: "Qualité Export",
+        hero_subtitle_2: "Directement de la savane de Bogota à vos mains.",
+        hero_title_3: "Fraîcheur Garantie",
+        hero_subtitle_3: "Durée supérieure et couleurs éclatantes.",
+        hero_title_4: "Design Floral",
+        hero_subtitle_4: "Art et nature dans chaque arrangement.",
+        value_title_1: "Qualité Export",
+        value_desc_1: "Nos fleurs sont sélectionnées parmi les meilleures cultures de la Savane de Bogota, selon les normes internationales.",
+        value_title_2: "Fraîcheur Garantie",
+        value_desc_2: "Directement de la ferme à vos mains. Nous garantissons une durée supérieure à 5 jours en vase avec les soins appropriés.",
+        value_title_3: "Service Grossiste",
+        value_desc_3: "Prix spéciaux pour les fleuristes et les événements. Capacité pour de gros volumes avec une logistique spécialisée.",
+        about_p2: "Nous sommes nés pour résoudre un problème que nous connaissons bien — lors de l'organisation d'événements, il manquait toujours du volume, de la variété ou des fleurs de qualité constante — nous avons donc créé une boutique virtuelle qui combine stock de gros, sélection soignée et une expérience d'achat conçue pour ceux qui vendent et ceux qui offrent.",
+        about_p3: "Nous travaillons directement avec les producteurs et les centres de collecte, contrôlons la fraîcheur et la disponibilité, et proposons des prix et des présentations clairs pour les achats en gros et au détail. Si vous cherchez du volume, de la traçabilité et un service qui comprend votre entreprise, JK IMPERIO est là pour que vous ne manquiez jamais de fleurs au moment clé.",
+        btn_contact: "Contactez-nous",
+        filter_all: "Toutes", filter_reds: "🔴 Rouges", filter_whites: "⚪ Blanches", filter_pinks: "🌸 Roses", filter_yellows: "☀️ Jaunes/Oranges", filter_vintage: "🍂 Vintage",
+        wholesale_title: "Partenaires de votre Entreprise", wholesale_desc: "Vous avez un fleuriste ou organisez des événements ? Accédez à des prix spéciaux et à une attention personnalisée pour les achats en gros.",
+        cart_title: "Votre Panier 🌸", cart_empty: "Votre panier est vide.", cart_checkout: "Commander (WhatsApp)",
+        modal_desc: "📝 Description", modal_occasion: "🎉 Occasion Parfaite", modal_care: "💧 Instructions de Soin", modal_add: "Ajouter au Panier 🛒", btn_add: "Ajouter", stems_label: "24 Tiges",
+        faq_title: "Questions Fréquemment Posées",
+        faq_q1: "📦 Proposez-vous la livraison le jour même ?",
+        faq_a1: "Oui, pour les commandes passées avant 11h00 à Bogota, nous garantissons la livraison le jour même.",
+        faq_q2: "🌹 Combien de temps durent les roses ?",
+        faq_a2: "Nos roses sont traitées pour durer entre 8 et 12 jours en vase.",
+        faq_q3: "💳 Quels moyens de paiement acceptez-vous ?",
+        faq_a3: "Nous acceptons toutes les cartes de crédit, PSE, Nequi et Daviplata.",
+        footer_slogan: "Professionnalisme et élégance dans chaque pétale.",
+        footer_nav_title: "Navigation",
+        footer_contact_title: "Contact",
+        footer_city: "Bogotá, Colombie",
+        footer_copy: "&copy; 2026 JK IMPERIO. Tous droits réservés."
     }
 };
 
 let currentLang = localStorage.getItem('siteLang') || 'es';
+
+// Currency Configuration (Fixed Prices as requested)
+const currencyConfig = {
+    es: { currency: 'COP', symbol: '$', price: 40000, suffix: 'COP' },
+    en: { currency: 'USD', symbol: '$', price: 18.50, suffix: 'USD' },
+    pt: { currency: 'BRL', symbol: 'R$', price: 90, suffix: 'BRL' },
+    it: { currency: 'EUR', symbol: '€', price: 20, suffix: '' },
+    fr: { currency: 'EUR', symbol: '€', price: 20, suffix: '' }
+};
 
 function changeLanguage(lang) {
     currentLang = lang;
@@ -199,7 +308,7 @@ function changeLanguage(lang) {
     // Update Floating Button Flag
     const currentFlag = document.getElementById('current-lang-flag');
     if (currentFlag) {
-        const flagMap = { es: 'es', en: 'us', pt: 'br', it: 'it', de: 'de' };
+        const flagMap = { es: 'co', en: 'us', pt: 'br', it: 'it', fr: 'fr' }; // Updated map
         currentFlag.src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
     }
 
@@ -219,8 +328,13 @@ function changeLanguage(lang) {
     });
 
     // Re-render Products
-    if (typeof window.products !== 'undefined' && typeof renderProducts === 'function') {
-        renderProducts(window.products);
+    if (typeof window.renderProducts === 'function' && window.products) {
+        window.renderProducts(window.products);
+    }
+
+    // Update Cart UI to reflect new currency/price
+    if (typeof window.updateCartUI === 'function') {
+        window.updateCartUI();
     }
 
     // Dynamic Content
@@ -259,28 +373,109 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Search Logic (New Modern Bar) ---
+    // --- Search Logic (Enhanced Dropdown) ---
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
+    const searchContainer = document.querySelector('.search-container');
 
-    if (searchInput && searchBtn) {
-        const performSearch = () => {
-            const query = searchInput.value.toLowerCase().trim();
-            if (!window.products) return;
+    if (searchInput && searchBtn && searchContainer) {
+        // Create Results Container dynamically if not exists
+        let resultsContainer = document.querySelector('.search-results');
+        if (!resultsContainer) {
+            resultsContainer = document.createElement('div');
+            resultsContainer.className = 'search-results';
+            searchContainer.appendChild(resultsContainer);
+        }
+
+        const closeSearch = () => {
+            searchInput.classList.remove('active');
+            resultsContainer.style.display = 'none';
+            document.body.classList.remove('search-active');
+            searchInput.value = '';
+        };
+
+        const performSearch = (query) => {
+            if (!window.products || query.length < 2) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
 
             const filtered = window.products.filter(p =>
                 p.name.toLowerCase().includes(query) ||
-                p.type.toLowerCase().includes(query)
+                p.type.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query)
             );
 
-            // Scroll to shop
-            document.getElementById('shop-retail')?.scrollIntoView({ behavior: 'smooth' });
-            renderProducts(filtered);
+            resultsContainer.innerHTML = '';
+
+            if (filtered.length > 0) {
+                resultsContainer.style.display = 'block';
+                filtered.forEach(product => {
+                    const price = window.currencyConfig ?
+                        (window.currencyConfig[currentLang]?.symbol + ' ' + window.currencyConfig[currentLang]?.price) :
+                        '$' + product.price;
+
+                    const item = document.createElement('div');
+                    item.className = 'search-item';
+                    item.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="search-item-info">
+                            <h4>${product.name}</h4>
+                            <p>${product.type} (${translations[currentLang].stems_label || '24 Tallos'})</p>
+                            <span>${price}</span>
+                        </div>
+                    `;
+                    item.addEventListener('click', () => {
+                        renderProducts([product]);
+                        document.getElementById('shop-retail')?.scrollIntoView({ behavior: 'smooth' });
+                        closeSearch();
+                    });
+                    resultsContainer.appendChild(item);
+                });
+            } else {
+                resultsContainer.style.display = 'block';
+                resultsContainer.innerHTML = `<div class="search-no-results">No encontramos coincidencias 🥀</div>`;
+            }
         };
 
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') performSearch();
+        // Toggle Input on Button Click
+        searchBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (searchInput.classList.contains('active') && searchInput.value.trim() !== '') {
+                // If active and has text, perform full search render
+                const query = searchInput.value.toLowerCase().trim();
+                const filtered = window.products.filter(p => p.name.toLowerCase().includes(query));
+                renderProducts(filtered);
+                document.getElementById('shop-retail')?.scrollIntoView({ behavior: 'smooth' });
+                closeSearch();
+            } else {
+                // Just toggle
+                searchInput.classList.toggle('active');
+                if (searchInput.classList.contains('active')) {
+                    searchInput.focus();
+                    document.body.classList.add('search-active'); // Enable Focus Mode
+                } else {
+                    document.body.classList.remove('search-active');
+                }
+            }
+        });
+
+        // Input Listener
+        searchInput.addEventListener('input', (e) => {
+            performSearch(e.target.value.toLowerCase().trim());
+        });
+
+        // Add focus listener to trigger transparent mode
+        searchInput.addEventListener('focus', () => {
+            document.body.classList.add('search-active');
+            searchInput.classList.add('active');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchContainer.contains(e.target)) {
+                closeSearch();
+            }
         });
     }
 
@@ -687,16 +882,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper: Format Price
     const formatPrice = (price) => {
-        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(price);
-    };
+        // We generally ignore individual product price and use the regional fixed price configuration
+        // But if 'price' argument is provided and we want to format it specifically, we could.
+        // For this requirement, we use the config price.
+        const config = currencyConfig[currentLang] || currencyConfig['es'];
+        let formattedValue;
 
-    // --- Global Pricing ---
-    const PRICE_DOCENA = 40000;
+        if (config.currency === 'COP') {
+            formattedValue = new Intl.NumberFormat('es-CO').format(config.price);
+        } else {
+            formattedValue = config.price.toFixed(2);
+        }
+
+        return `${config.symbol} ${formattedValue} ${config.suffix}`;
+    };
 
     // --- RENDER PRODUCTS ---
     function renderProducts(items) {
         if (!productGrid) return;
         productGrid.innerHTML = '';
+
+        // Re-read current config
+        const displayPrice = formatPrice();
 
         if (items.length === 0) {
             productGrid.innerHTML = '<div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 50px;">No encontramos flores con ese nombre 🥀</div>';
@@ -725,7 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-type">${product.type} • <span data-i18n="stems_label">${translations[currentLang].stems_label}</span></p>
                     <div class="product-meta">
-                        <p class="product-price">${formatPrice(PRICE_DOCENA)}</p>
+                        <p class="product-price">${displayPrice}</p>
                         <button class="btn-add-cart" onclick="addToCart(${product.id})">🛒</button>
                     </div>
                 </div>
@@ -733,6 +940,9 @@ document.addEventListener('DOMContentLoaded', () => {
             productGrid.appendChild(card);
         });
     }
+
+    // Expose renderProducts globally
+    window.renderProducts = renderProducts;
 
     // --- FILTER LOGIC ---
     filterBtns.forEach(btn => {
@@ -766,7 +976,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addToCart = function (id) {
         const product = products.find(p => p.id === id);
         if (product) {
-            // Updated logic: Single default variant (Docena), Price 40k
+            const config = currencyConfig[currentLang] || currencyConfig['es'];
+
+            // Re-check existing item
             const existingItem = cart.find(item => item.id === id);
 
             if (existingItem) {
@@ -775,7 +987,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart.push({
                     ...product,
                     quantity: 1,
-                    price: PRICE_DOCENA // Use new fixed price
+                    price: config.price, // Store current active price
+                    currencyConfig: config // Store config specific to this item add
                 });
             }
             updateCartUI();
@@ -824,13 +1037,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartItemsContainer && cartTotalPrice) {
             cartItemsContainer.innerHTML = '';
             let total = 0;
+            // Note: Mixing currencies in cart logic is tricky. 
+            // We assume user stays in one currency/mode or we re-calc total based on current display?
+            // User requested explicit prices per region. We will sum up the raw numbers 
+            // but displaying a total for mixed currencies (if user switches language midway) is complex.
+            // For now, we assume the cart total displays in the CURRENT language's currency symbol.
+
+            const config = currencyConfig[currentLang] || currencyConfig['es'];
 
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío 🥀</div>';
             } else {
                 cart.forEach((item) => {
-                    const itemTotal = item.price * item.quantity;
+                    // Logic: If user switches Lang, should price change? 
+                    // Usually yes for this simple implementation.
+                    // So we might ignore stored item.price and use current config price.
+
+                    const currentPrice = config.price;
+                    const itemTotal = currentPrice * item.quantity;
                     total += itemTotal;
+
+                    // Formatting for individual item display
+                    let displayItemPrice;
+                    if (config.currency === 'COP') {
+                        displayItemPrice = new Intl.NumberFormat('es-CO').format(currentPrice);
+                    } else {
+                        displayItemPrice = currentPrice.toFixed(2);
+                    }
 
                     const itemEl = document.createElement('div');
                     itemEl.className = 'cart-item';
@@ -839,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="cart-item-details">
                             <div class="cart-item-title">${item.name}</div>
                             <div class="cart-item-type" style="font-size: 0.8rem; color: #666;">Docena (12 Tallos)</div>
-                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+                            <div class="cart-item-price">${config.symbol} ${displayItemPrice} ${config.suffix}</div>
                             <div class="cart-controls">
                                 <button class="qty-btn" onclick="decreaseQuantity(${item.id})">-</button>
                                 <span class="qty-val">${item.quantity}</span>
@@ -847,28 +1080,53 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div class="cart-item-total">
-                            $${itemTotal.toLocaleString()}
+                            ${config.symbol} ${(config.currency === 'COP' ? new Intl.NumberFormat('es-CO').format(itemTotal) : itemTotal.toFixed(2))}
                         </div>
                         <div class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Eliminar">&times;</div>
                     `;
                     cartItemsContainer.appendChild(itemEl);
                 });
             }
-            cartTotalPrice.textContent = '$' + total.toLocaleString();
+
+            let displayTotal;
+            if (config.currency === 'COP') {
+                displayTotal = new Intl.NumberFormat('es-CO').format(total);
+            } else {
+                displayTotal = total.toFixed(2);
+            }
+            cartTotalPrice.textContent = `${config.symbol} ${displayTotal} ${config.suffix}`;
         }
     }
 
+    // Expose updateCartUI globally
+    window.updateCartUI = updateCartUI;
+
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
+            // Re-calc for message with current config
+            const config = currencyConfig[currentLang] || currencyConfig['es'];
+
             if (cart.length === 0) return;
             let message = "Hola JK IMPERIO, deseo realizar el siguiente pedido: \n\n";
             let total = 0;
+
             cart.forEach(item => {
-                const subtotal = item.price * item.quantity;
-                message += `▪️ *(${item.quantity})* ${item.name} [Docena] - $${subtotal.toLocaleString()}\n`;
+                const price = config.price;
+                const subtotal = price * item.quantity;
+
+                let displaySub;
+                if (config.currency === 'COP') displaySub = new Intl.NumberFormat('es-CO').format(subtotal);
+                else displaySub = subtotal.toFixed(2);
+
+                message += `▪️ *(${item.quantity})* ${item.name} [Docena] - ${config.symbol}${displaySub}\n`;
                 total += subtotal;
             });
-            message += `\n🌺 *TOTAL A PAGAR: $${total.toLocaleString()}*`;
+
+            let displayTotal;
+            if (config.currency === 'COP') displayTotal = new Intl.NumberFormat('es-CO').format(total);
+            else displayTotal = total.toFixed(2);
+
+            message += `\n🌺 *TOTAL A PAGAR: ${config.symbol}${displayTotal} ${config.suffix}*`;
             window.open(`https://wa.me/573002963698?text=${encodeURIComponent(message)}`, '_blank');
         });
     }
@@ -913,9 +1171,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Modal Price (Fixed)
+        // Modal Price (Use Helper)
         if (modalPrice) {
-            modalPrice.textContent = formatPrice(PRICE_DOCENA);
+            modalPrice.textContent = formatPrice();
         }
 
         // Configure "Add to Cart" button in modal
