@@ -1157,12 +1157,17 @@ img {
         display: flex !important;
     }
 
-    /* Hide the wrapper if it was pill styled, but keep logic */
+    /* Hide the wrapper if it was pill styled - RESET ALL desktop styles */
     .search-container {
         display: block;
-        /* Essential for relative positioning */
         position: static;
-        /* Let input float relative to header actions if needed */
+        background: none;
+        border: none;
+        padding: 0;
+        width: auto;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
     }
 }
 
@@ -1221,9 +1226,10 @@ img {
     .header-actions {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 15px;
+        /* Increased gap for touch targets */
         flex-shrink: 0;
-        /* Prevent shrinking */
+        margin-left: 10px;
     }
 
     /* MOBILE SEARCH BEHAVIOR (Classic Drop-down) */
