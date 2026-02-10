@@ -337,6 +337,12 @@ function changeLanguage(lang) {
         window.updateCartUI();
     }
 
+    // Close Language Selector (Mobile Fix)
+    const langContainer = document.querySelector('.lang-floating-container');
+    if (langContainer) {
+        langContainer.classList.remove('active');
+    }
+
     // Dynamic Content
     updateDynamicContent();
 }
@@ -1213,8 +1219,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initial Render
+    // --- Language Selector Toggle (Mobile & Desktop) ---
+    const langBtn = document.querySelector('.lang-toggle-btn');
+    const langContainer = document.querySelector('.lang-floating-container');
+
+    if (langBtn && langContainer) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent closing immediately
+            langContainer.classList.toggle('active');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langContainer.contains(e.target)) {
+                langContainer.classList.remove('active');
+            }
+        });
+    }
+
     // Initial Render
     changeLanguage(currentLang);
-
 });

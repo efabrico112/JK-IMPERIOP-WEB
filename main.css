@@ -1485,7 +1485,7 @@ img {
 
 @media (max-width: 480px) {
     .header-actions {
-        gap: 10px;
+        gap: 8px;
     }
 
     .search-container {
@@ -1494,14 +1494,15 @@ img {
     }
 
     #search-input {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        /* Fixed to top of viewport */
+        top: var(--header-height);
         left: 0;
         width: 100%;
         background: white;
-        padding: 10px;
-        border-bottom: 2px solid var(--color-gold);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         z-index: 998;
         display: none;
         /* Hidden by default */
@@ -1514,18 +1515,89 @@ img {
         opacity: 1;
     }
 
-    .search-container .btn-icon {
-        display: block !important;
-        color: var(--color-primary);
-        font-size: 1.2rem;
-    }
-
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        /* Better fit */
+        padding: 0 10px;
     }
 
+    .hero-content p {
+        font-size: 0.9rem;
+        padding: 0 15px;
+    }
+
+    .section-padding {
+        padding: 40px 0;
+        /* Reduce vertical spacing */
+    }
+
+    /* Scrollable Filters (App-like feel) */
+    .filter-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        gap: 10px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+        margin: 0 -5%;
+        /* Bleed to edges */
+        padding: 0 5% 15px 5%;
+        /* Inner padding */
+    }
+
+    .filter-buttons::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;
+        /* Don't shrink */
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+
+    /* 2 Column Mobile Grid */
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .product-image {
+        height: 160px;
+        /* Adjust height ratio */
+    }
+
+    .product-info {
+        padding: 8px;
+    }
+
+    .product-title {
+        font-size: 0.85rem;
+        height: 2.4em;
+        /* Limit to 2 lines */
+        overflow: hidden;
+    }
+
+    .product-price {
+        font-size: 0.95rem;
+    }
+
+    .btn-add-cart {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    /* Fix Language Selector Position */
+    .lang-floating-container {
+        bottom: 20px;
+        left: 20px;
+        z-index: 10000;
     }
 }
 
@@ -1819,8 +1891,9 @@ img {
     /* Behind button */
 }
 
-/* Expand on Hover of container */
-.lang-floating-container:hover .lang-options {
+/* Expand on Hover OR Active Class (for Mobile) */
+.lang-floating-container:hover .lang-options,
+.lang-floating-container.active .lang-options {
     opacity: 1;
     visibility: visible;
     transform: scaleX(1);
@@ -2065,10 +2138,11 @@ body.search-active .search-results {
         /* Move slightly left to be Inside the pill */
         top: 50%;
         transform: translateY(-50%);
-        pointer-events: none;
-        /* Let input handle clicks */
+        pointer-events: auto;
+        /* Allow clicking to close/search */
         z-index: 13;
         /* Icon sits ON TOP of the white pill */
+        cursor: pointer;
     }
 
     /* SEARCH FOCUS MODE - Hide Nav */
