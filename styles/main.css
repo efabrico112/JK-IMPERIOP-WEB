@@ -46,8 +46,7 @@
     --spacing-xl: 6rem;
 
     --container-width: 1200px;
-    --header-height: 160px;
-    /* Increased header height for larger brand name */
+    --header-height: 120px;
 
     /* --- Effects --- */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -225,17 +224,16 @@ img {
 }
 
 .logo-img {
-    height: 90px;
-    /* Significantly larger */
+    height: 60px;
+    /* Standard Logo Size */
     width: auto;
 }
 
 .brand-text-img {
-    height: 120px;
-    /* Adjusted for better alignment */
+    height: 80px;
+    /* Large Brand Name */
     width: auto;
-    margin-top: 12px;
-    /* Nudge down to align with logo center */
+    margin-top: 0;
     display: block;
 }
 
