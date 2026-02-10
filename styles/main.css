@@ -1148,149 +1148,159 @@ img {
     margin-bottom: 10px;
 }
 
-/* --- Responsive Search & Header --- */
-/* --- Responsive Search & Header --- */
+/* =========================================
+   RESPONSIVE & MOBILE FIXES (FINAL)
+   ========================================= */
+
+/* Tablet & Mobile (992px and below) */
 @media (max-width: 992px) {
 
-    /* TABLET & MOBILE: Show Search Icon */
+    /* Show Search Icon */
     #search-btn {
         display: flex !important;
     }
 
-    /* Hide the wrapper if it was pill styled - RESET ALL desktop styles */
+    /* Reset Search Container (Remove Pill Styles) */
     .search-container {
         display: block;
         position: static;
-        background: none;
+        background: transparent;
         border: none;
         padding: 0;
         width: auto;
         margin: 0;
         box-shadow: none;
-        border-radius: 0;
+    }
+
+    /* Adjust Hero Font */
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
 }
 
+/* Desktop Only (993px and up) */
 @media (min-width: 993px) {
-
-    /* DESKTOP: Search Icon expands input */
     #search-btn {
         display: flex;
-        /* Keep icon on desktop too for classic expand */
+        /* Classic: Icon visible */
     }
 }
 
+/* Mobile Phones (768px and below) */
 @media (max-width: 768px) {
 
-    /* MOBILE HEADER layout */
+    /* Header Container */
     .site-header .container {
         padding: 0 15px;
+        display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 100%;
     }
 
+    /* Logo & Brand Name */
     .logo {
         flex: 1;
-        /* Take available space */
         margin-right: 10px;
+        display: flex;
+        align-items: center;
         overflow: hidden;
-        /* Prevent blowout */
     }
 
     .logo a {
         display: flex;
         align-items: center;
         gap: 8px;
-        /* Gap between logo and text */
         text-decoration: none;
     }
 
     .logo-img {
         height: 45px;
-        /* Sized for mobile */
         width: auto;
-        flex-shrink: 0;
     }
 
-    /* CRITICAL: Brand Name Visibility */
+    /* FORCE BRAND NAME VISIBILITY */
     .brand-text-img {
         height: 35px;
-        /* Sized for mobile */
         width: auto;
         display: block !important;
-        /* Force Visible */
         margin-top: 2px;
-        object-fit: contain;
     }
 
+    /* Header Actions (Search, Cart, Menu) */
     .header-actions {
         display: flex;
         align-items: center;
         gap: 15px;
-        /* Increased gap for touch targets */
         flex-shrink: 0;
-        margin-left: 10px;
     }
 
-    /* MOBILE SEARCH BEHAVIOR (Classic Drop-down) */
+    .btn-icon {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+    }
+
+    /* Search Input (Classic Dropdown) */
     #search-input {
-        right: 15px;
-        /* Align to edge */
+        /* Reset positioning */
+        position: absolute;
         top: 100%;
-        /* Drop below header */
-        transform: none;
-        /* Remove vertical center centering */
-        margin-top: 5px;
-        /* Spacing */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        right: 0;
+        width: 100%;
+        background: white;
+        padding: 10px;
+        border-bottom: 2px solid var(--color-gold);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+
+        display: none;
+        /* Hidden by default */
+        opacity: 0;
+        transition: opacity 0.3s;
     }
 
     #search-input.active {
-        width: 180px;
-        /* Reasonable mobile width */
+        display: block;
         opacity: 1;
     }
 
+    /* Search Results */
     .search-results {
         position: fixed;
-        /* Fix to viewport on mobile to avoid overflow issues */
         top: var(--header-height);
         left: 0;
-        width: 100vw;
-        max-height: 50vh;
-        border-radius: 0;
+        width: 100%;
+        max-height: 60vh;
+        background: white;
+        z-index: 1000;
         border-top: 1px solid #eee;
-    }
-
-    .search-item img {
-        width: 50px;
-        height: 50px;
+        overflow-y: auto;
     }
 }
 
-/* --- WhatsApp Float --- */
+/* WhatsApp Float */
 .whatsapp-float {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     background-color: #25d366;
     color: white;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 999;
+    z-index: 2000;
     transition: transform 0.3s;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1);
 }
 
 .whatsapp-float img {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
 }
