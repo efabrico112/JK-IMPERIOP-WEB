@@ -16,7 +16,11 @@
         rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/imperio.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -28,7 +32,7 @@
                 <a href="#">
                     <img src="https://cdn.shopify.com/s/files/1/0747/5471/9899/files/Logo_de_lujo_de_Flora_KJ.png?v=1770593534"
                         alt="JK IMPERIO Logo" class="logo-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0747/5471/9899/files/image_Pippit_202602082249-removebg-preview.png?v=1770609221"
+                    <img src="https://cdn.shopify.com/s/files/1/0999/1615/2913/files/image_Pippit_202602091408-removebg-preview.png?v=1770664713"
                         alt="JK IMPERIO" class="brand-text-img">
                 </a>
             </div>
@@ -41,12 +45,13 @@
                     <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar flores...">
+                <div id="search-results" class="search-results"></div>
+            </div>
+
             <div class="header-actions">
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Buscar flores...">
-                    <button id="search-btn" class="btn-icon" aria-label="Buscar">🔍</button>
-                    <div id="search-results" class="search-results"></div>
-                </div>
+                <button class="btn-icon" id="search-btn" aria-label="Buscar">🔍</button>
                 <a href="#" class="btn-icon" id="cart-btn">🛒 <span class="cart-count">0</span></a>
             </div>
             <button class="menu-toggle" aria-label="Abrir menú">
@@ -57,7 +62,7 @@
         </div>
     </header>
 
-    <!-- ... (Hero and other sections remain) ... -->
+    <!-- Main Content -->
 
     <!-- Shopping Cart Modal -->
     <div id="cart-modal" class="sidebar-modal">
@@ -75,7 +80,8 @@
                     <span>Total:</span>
                     <span id="cart-total-price">$0</span>
                 </div>
-                <button id="checkout-btn" class="btn btn-primary btn-block">Confirmar Pedido (WhatsApp)</button>
+                <button id="checkout-btn" class="btn btn-primary btn-block">Confirmar Pedido
+                    (WhatsApp)</button>
             </div>
         </div>
     </div>
@@ -84,7 +90,7 @@
     <section id="hero" class="hero-slider">
         <div class="slider-wrapper">
             <div class="slide active"
-                style="background-image: url('https://images.unsplash.com/photo-1591865952402-23c8e42f4c9c?q=80&w=2670');">
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_24.jpg?v=1770663823');">
                 <div class="hero-content">
                     <h1 class="fade-in-up">Elegancia Natural</h1>
                     <p class="fade-in-up delay-1">Flores premium para momentos inolvidables.</p>
@@ -93,7 +99,7 @@
                 <div class="hero-overlay"></div>
             </div>
             <div class="slide"
-                style="background-image: url('https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=2187');">
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_25.jpg?v=1770663823');">
                 <div class="hero-content">
                     <h1>Calidad Exportación</h1>
                     <p>Directo de la sabana de Bogotá a tus manos.</p>
@@ -102,7 +108,7 @@
                 <div class="hero-overlay"></div>
             </div>
             <div class="slide"
-                style="background-image: url('https://images.unsplash.com/photo-1494972308805-463bc619d34e?q=80&w=2074');">
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_21_17.png?v=1770663826');">
                 <div class="hero-content">
                     <h1>Frescura Garantizada</h1>
                     <p>Duración superior y colores vibrantes.</p>
@@ -110,7 +116,7 @@
                 <div class="hero-overlay"></div>
             </div>
             <div class="slide"
-                style="background-image: url('https://images.unsplash.com/photo-1587588321487-248ba0857732?q=80&w=1961');">
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_23_16.png?v=1770663826');">
                 <div class="hero-content">
                     <h1>Diseño Floral</h1>
                     <p>Arte y naturaleza en cada arreglo.</p>
@@ -134,58 +140,26 @@
         <div class="container grid-3">
             <div class="value-card">
                 <h3>Calidad Tipo Exportación</h3>
-                <p>Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de Bogotá, con estándares
+                <p>Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de Bogotá, con
+                    estándares
                     internacionales.</p>
             </div>
             <div class="value-card">
                 <h3>Frescura Garantizada</h3>
-                <p>Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días en florero con el
+                <p>Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días en florero
+                    con el
                     cuidado adecuado.</p>
             </div>
             <div class="value-card">
                 <h3>Atención Mayorista</h3>
-                <p>Precios especiales para floristerías y eventos. Capacidad para grandes volúmenes con logística
+                <p>Precios especiales para floristerías y eventos. Capacidad para grandes volúmenes con
+                    logística
                     especializada.</p>
             </div>
         </div>
     </section>
 
-    <!-- Savings Visualization Section -->
-    <section class="savings-section section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2>Rentabilidad Garantizada</h2>
-                <p class="subtitle">Maximiza tus ganancias con nuestros precios directos de cultivo.</p>
-            </div>
 
-            <div class="savings-card">
-                <div class="savings-grid">
-                    <div class="price-box commercial">
-                        <div class="pb-label">Precio Comercial Promedio</div>
-                        <div class="pb-price">$40.000</div>
-                        <div class="pb-desc">Por Docena (12 Tallos)</div>
-                    </div>
-
-                    <div class="vs-badge">VS</div>
-
-                    <div class="price-box wholesale">
-                        <div class="wholesale-tag">MEJOR PRECIO</div>
-                        <div class="pb-label">Precio JK IMPERIO</div>
-                        <div class="pb-price">$30.000</div>
-                        <div class="pb-desc">Por Docena (> 12 Unidades)</div>
-                    </div>
-                </div>
-
-                <div class="savings-highlight">
-                    <div class="sh-icon">💰</div>
-                    <div class="sh-text">
-                        <h3>¡Ahorras $10.000 COP por Docena!</h3>
-                        <p>Tu margen de ganancia puede superar el 40% vendiendo al detal.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- About Us Section -->
     <section id="about" class="about-section section-padding" style="background-color: var(--color-bg-soft);">
@@ -196,15 +170,22 @@
             <div class="text-content">
                 <h2>Nuestra Historia</h2>
                 <div class="about-text">
-                    <p>En <strong>JK IMPERIO</strong> hacemos algo sencillo pero potente: entregamos flores que cumplen
+                    <p>En <strong>JK IMPERIO</strong> hacemos algo sencillo pero potente: entregamos flores
+                        que cumplen
                         con lo que prometen.</p>
-                    <p>Nacimos para resolver un problema que conocemos bien —cuando organizábamos eventos, siempre
-                        faltaban volúmenes, variedad o flores con calidad constante— así que creamos una tienda virtual
-                        que combina stock mayorista, selección curada y una experiencia de compra pensada para quien
+                    <p>Nacimos para resolver un problema que conocemos bien —cuando organizábamos eventos,
+                        siempre
+                        faltaban volúmenes, variedad o flores con calidad constante— así que creamos una
+                        tienda virtual
+                        que combina stock mayorista, selección curada y una experiencia de compra pensada
+                        para quien
                         vende y para quien regala.</p>
-                    <p>Trabajamos directo con productores y centros de acopio, controlamos frescura y disponibilidad, y
-                        ofrecemos precios y presentaciones claras para compras al por mayor y al por menor. Si buscas
-                        volumen, trazabilidad y una atención que entiende tu negocio, JK IMPERIO está para que nunca te
+                    <p>Trabajamos directo con productores y centros de acopio, controlamos frescura y
+                        disponibilidad, y
+                        ofrecemos precios y presentaciones claras para compras al por mayor y al por menor.
+                        Si buscas
+                        volumen, trazabilidad y una atención que entiende tu negocio, JK IMPERIO está para
+                        que nunca te
                         falten flores en el momento clave.</p>
                 </div>
                 <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;">Contáctanos</a>
@@ -244,7 +225,8 @@
         <div class="container split-layout">
             <div class="text-content">
                 <h2>Aliados de tu Negocio</h2>
-                <p>¿Tienes una floristería o organizas eventos? Accede a precios especiales y atención personalizada
+                <p>¿Tienes una floristería o organizas eventos? Accede a precios especiales y atención
+                    personalizada
                     para compras al por mayor.</p>
                 <a href="https://wa.me/573002963698?text=Hola%20JK%20IMPERIO,%20estoy%20interesado%20en%20el%20cat%C3%A1logo%20mayorista"
                     target="_blank" class="btn btn-primary">SOLICITAR CATÁLOGO MAYORISTA</a>
@@ -252,7 +234,7 @@
             <div class="image-content">
                 <!-- Wholesale Video -->
                 <video autoplay muted loop playsinline
-                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                     <source src="https://cdn.shopify.com/videos/c/o/v/35cfe52d0d9c41e2be23ef32a627e295.mp4"
                         type="video/mp4">
                     Tu navegador no soporta videos HTML5.
@@ -272,17 +254,20 @@
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md); text-align: left;">
                 <div class="faq-item" style="padding: 20px; background: var(--color-bg-main); border-radius: 4px;">
                     <h4 style="margin-bottom: 10px;">📦 ¿Hacen envíos el mismo día?</h4>
-                    <p>Sí, para pedidos realizados antes de las 11:00 AM en Bogotá, garantizamos la entrega el mismo
+                    <p>Sí, para pedidos realizados antes de las 11:00 AM en Bogotá, garantizamos la entrega
+                        el mismo
                         día. Para otras ciudades, consulta tiempos de entrega.</p>
                 </div>
                 <div class="faq-item" style="padding: 20px; background: var(--color-bg-main); border-radius: 4px;">
                     <h4 style="margin-bottom: 10px;">🌹 ¿Cuánto duran las rosas?</h4>
-                    <p>Nuestras rosas tipo exportación están hidratadas y tratadas para durar entre 8 y 12 días en
+                    <p>Nuestras rosas tipo exportación están hidratadas y tratadas para durar entre 8 y 12
+                        días en
                         florero, siguiendo nuestros tips de cuidado.</p>
                 </div>
                 <div class="faq-item" style="padding: 20px; background: var(--color-bg-main); border-radius: 4px;">
                     <h4 style="margin-bottom: 10px;">💳 ¿Qué medios de pago aceptan?</h4>
-                    <p>Aceptamos todas las tarjetas de crédito, PSE, Nequi y Daviplata para tu comodidad y seguridad.
+                    <p>Aceptamos todas las tarjetas de crédito, PSE, Nequi y Daviplata para tu comodidad y
+                        seguridad.
                     </p>
                 </div>
             </div>
@@ -375,7 +360,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="scripts/main.js"></script>
+    <script src="scripts/imperio.js"></script>
 </body>
 
 </html>
