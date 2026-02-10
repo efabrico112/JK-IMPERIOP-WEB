@@ -1498,164 +1498,171 @@ img {
 
     /* Mobile Search Overhaul */
     /* Mobile Search v5.0 (Simple Bar Below Header) */
-    .search-container {
-        position: static;
-    }
-
-    #search-input {
-        position: absolute;
-        /* Not fixed, flows with header */
-        top: 60px;
-        /* Below header */
-        left: 0;
-        width: 100%;
-        height: 50px;
-        background: white;
-        padding: 5px 15px;
-        border: none;
-        border-bottom: 1px solid #eee;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        z-index: 900;
-        /* Below modal but above content */
-        display: none;
-        font-size: 0.95rem;
-        color: #333;
-        border-radius: 0;
-    }
-
-    #search-input.active {
-        display: block;
-        animation: slideDown 0.2s ease-out;
-    }
-
-    @keyframes slideDown {
-        from {
-            transform: translateY(-10px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    /* Force search icon to be visible and correctly placed on mobile */
-    /* The Icon - Reset to standard relative/absolute inside header */
+    /* Mobile Header Polish (No Search, Big Logo) */
+    .search-container,
+    #search-input,
     #search-btn {
-        position: relative;
-        top: auto;
-        left: auto;
-        z-index: 901;
-        width: 40px;
-        height: 40px;
+        display: none !important;
     }
 
-    /* The Results - Dropdown below input */
-    .search-results {
-        position: absolute !important;
-        top: 110px !important;
-        /* Header (60) + Input (50) */
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        max-height: 60vh !important;
-        background: white !important;
-        z-index: 899 !important;
-        padding: 10px !important;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
-        border: 1px solid #eee !important;
-    }
-
-    body.search-active {
-        overflow: auto;
-        /* Re-enable scroll */
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-        /* Better fit */
-        padding: 0 10px;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-        padding: 0 15px;
-    }
-
-    .section-padding {
-        padding: 40px 0;
-        /* Reduce vertical spacing */
-    }
-
-    /* Scrollable Filters (App-like feel) */
-    .filter-buttons {
+    /* Centered & Larger Brand */
+    .logo a {
+        justify-content: center;
+        width: 100%;
         display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 10px;
+        align-items: center;
         gap: 10px;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        /* Hide scrollbar Firefox */
-        margin: 0 -5%;
-        /* Bleed to edges */
-        padding: 0 5% 15px 5%;
-        /* Inner padding */
     }
 
-    .filter-buttons::-webkit-scrollbar {
-        display: none;
-        /* Hide scrollbar Chrome/Safari */
+    .logo-img {
+        height: 60px;
+        /* Bigger Logo */
+        width: auto;
     }
 
-    .filter-btn {
-        flex: 0 0 auto;
-        /* Don't shrink */
-        font-size: 0.85rem;
-        padding: 8px 16px;
+    .brand-text-img {
+        height: 24px;
+        /* Proportional text */
+        margin-left: 0;
     }
 
-    /* 2 Column Mobile Grid */
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 0 10px;
+    /* Adjust Header Actions Position */
+    .header-actions {
+        position: absolute;
+        right: 15px;
+        top: 25px;
     }
 
-    .product-image {
-        height: 160px;
-        /* Adjust height ratio */
+    /* Mobile-Specific Badge Adjustment */
+    .badge {
+        font-size: 0.55rem;
+        padding: 2px 5px;
+        top: 4px;
+        left: 4px;
+        opacity: 0.9;
+        /* Slightly transparent to show flower? */
     }
+}
 
-    .product-info {
-        padding: 8px;
-    }
+/* End of max-width: 480px */
+}
 
-    .product-title {
-        font-size: 0.85rem;
-        height: 2.4em;
-        /* Limit to 2 lines */
-        overflow: hidden;
-    }
+/* Force search icon to be visible and correctly placed on mobile */
+/* The Icon - Reset to standard relative/absolute inside header */
+#search-btn {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 901;
+    width: 40px;
+    height: 40px;
+}
 
-    .product-price {
-        font-size: 0.95rem;
-    }
+/* The Results - Dropdown below input */
+.search-results {
+    position: absolute !important;
+    top: 110px !important;
+    /* Header (60) + Input (50) */
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 60vh !important;
+    background: white !important;
+    z-index: 899 !important;
+    padding: 10px !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #eee !important;
+}
 
-    .btn-add-cart {
-        width: 30px;
-        height: 30px;
-        font-size: 0.9rem;
-    }
+body.search-active {
+    overflow: auto;
+    /* Re-enable scroll */
+}
 
-    /* Fix Language Selector Position */
-    .lang-floating-container {
-        bottom: 20px;
-        left: 20px;
-        z-index: 10000;
-    }
+.hero-content h1 {
+    font-size: 1.8rem;
+    /* Better fit */
+    padding: 0 10px;
+}
+
+.hero-content p {
+    font-size: 0.9rem;
+    padding: 0 15px;
+}
+
+.section-padding {
+    padding: 40px 0;
+    /* Reduce vertical spacing */
+}
+
+/* Scrollable Filters (App-like feel) */
+.filter-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 10px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+    margin: 0 -5%;
+    /* Bleed to edges */
+    padding: 0 5% 15px 5%;
+    /* Inner padding */
+}
+
+.filter-buttons::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
+}
+
+.filter-btn {
+    flex: 0 0 auto;
+    /* Don't shrink */
+    font-size: 0.85rem;
+    padding: 8px 16px;
+}
+
+/* 2 Column Mobile Grid */
+.product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 10px;
+}
+
+.product-image {
+    height: 160px;
+    /* Adjust height ratio */
+}
+
+.product-info {
+    padding: 8px;
+}
+
+.product-title {
+    font-size: 0.85rem;
+    height: 2.4em;
+    /* Limit to 2 lines */
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 0.95rem;
+}
+
+.btn-add-cart {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+}
+
+/* Fix Language Selector Position */
+.lang-floating-container {
+    bottom: 20px;
+    left: 20px;
+    z-index: 10000;
+}
 }
 
 /* WhatsApp Float */
