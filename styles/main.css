@@ -1149,77 +1149,116 @@ img {
 }
 
 /* --- Responsive Search & Header --- */
+/* --- Responsive Search & Header --- */
 @media (max-width: 992px) {
 
-    /* Hide Pill Search on Tablet/Mobile */
-    .search-container {
-        display: none;
+    /* TABLET & MOBILE: Show Search Icon */
+    #search-btn {
+        display: flex !important;
     }
 
-    /* Show Search Icon Only */
-    #search-btn {
-        display: flex;
+    /* Hide the wrapper if it was pill styled, but keep logic */
+    .search-container {
+        display: block;
+        /* Essential for relative positioning */
+        position: static;
+        /* Let input float relative to header actions if needed */
     }
 }
 
 @media (min-width: 993px) {
 
-    /* Hide Search Icon on Desktop (Input is visible) */
+    /* DESKTOP: Search Icon expands input */
     #search-btn {
-        display: none;
+        display: flex;
+        /* Keep icon on desktop too for classic expand */
     }
 }
 
 @media (max-width: 768px) {
 
-    /* Mobile Header Layout Fixes */
+    /* MOBILE HEADER layout */
     .site-header .container {
         padding: 0 15px;
         justify-content: space-between;
-        /* Space out Logo and Actions */
+        align-items: center;
     }
 
     .logo {
-        margin-right: 0;
-        /* Removing auto margin to allow center or flex spacing */
         flex: 1;
-        /* Allow logo area to take space */
+        /* Take available space */
+        margin-right: 10px;
+        overflow: hidden;
+        /* Prevent blowout */
     }
 
     .logo a {
+        display: flex;
+        align-items: center;
         gap: 8px;
+        /* Gap between logo and text */
+        text-decoration: none;
     }
 
     .logo-img {
-        height: 50px;
+        height: 45px;
+        /* Sized for mobile */
         width: auto;
+        flex-shrink: 0;
     }
 
+    /* CRITICAL: Brand Name Visibility */
     .brand-text-img {
-        height: 40px;
-        /* Reduced slightly to fit */
-        display: block;
-        /* Ensure visible */
+        height: 35px;
+        /* Sized for mobile */
         width: auto;
+        display: block !important;
+        /* Force Visible */
+        margin-top: 2px;
+        object-fit: contain;
     }
 
     .header-actions {
-        gap: 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+        /* Prevent shrinking */
     }
 
-    /* Fix Images in Overlay */
-    body.search-active .search-item img {
-        width: 60px;
-        height: 60px;
-    }
-
-    /* Ensure Input is positioned correctly in classic mode */
-    #search-input.active {
+    /* MOBILE SEARCH BEHAVIOR (Classic Drop-down) */
+    #search-input {
+        right: 15px;
+        /* Align to edge */
         top: 100%;
-        right: 0;
-        width: 100%;
-        background: white;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        /* Drop below header */
+        transform: none;
+        /* Remove vertical center centering */
+        margin-top: 5px;
+        /* Spacing */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #search-input.active {
+        width: 180px;
+        /* Reasonable mobile width */
+        opacity: 1;
+    }
+
+    .search-results {
+        position: fixed;
+        /* Fix to viewport on mobile to avoid overflow issues */
+        top: var(--header-height);
+        left: 0;
+        width: 100vw;
+        max-height: 50vh;
+        border-radius: 0;
+        border-top: 1px solid #eee;
+    }
+
+    .search-item img {
+        width: 50px;
+        height: 50px;
     }
 }
 
