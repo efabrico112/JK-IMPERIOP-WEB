@@ -227,14 +227,7 @@ function changeLanguage(lang) {
     updateDynamicContent();
 }
 
-// Re-render Products to apply translation (if products are available)
-if (typeof window.products !== 'undefined' && typeof renderProducts === 'function') {
-    renderProducts(window.products);
-}
 
-// Translate Dynamic Elements (Cart, etc. if needed)
-updateDynamicContent();
-}
 
 function updateDynamicContent() {
     // Helper to update stuff like cart headers that might be dynamically rendered
@@ -680,8 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- SEARCH & CART LOGIC ---
     const productGrid = document.querySelector('.product-grid');
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
+
 
     // Cart State
     let cart = [];
@@ -756,94 +748,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- SEARCH LOGIC (Live Dropdown) ---
-    const searchResults = document.getElementById('search-results');
 
-    if (searchBtn && searchInput && searchResults) {
-        // Toggle Search Bar
-        // Toggle Search Overlay
-        searchBtn.addEventListener('click', () => {
-            const isMobile = window.innerWidth <= 768;
-
-            if (isMobile) {
-                document.body.classList.toggle('search-active');
-                const isActive = document.body.classList.contains('search-active');
-
-                if (isActive) {
-                    searchInput.classList.add('active');
-                    setTimeout(() => searchInput.focus(), 100);
-                    searchBtn.innerHTML = '✕'; // Change to X
-                } else {
-                    searchInput.classList.remove('active');
-                    searchResults.style.display = 'none';
-                    searchBtn.innerHTML = '🔍'; // Change back to coin
-                    searchInput.value = ''; // Clear on close
-                }
-            } else {
-                // Desktop behavior (existing)
-                searchInput.classList.toggle('active');
-                if (searchInput.classList.contains('active')) {
-                    searchInput.focus();
-                } else {
-                    searchResults.style.display = 'none';
-                }
-            }
-        });
-
-        // Live Search Input
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase().trim();
-
-            if (term.length === 0) {
-                searchResults.style.display = 'none';
-                return;
-            }
-
-            const filtered = products.filter(p =>
-                p.name.toLowerCase().includes(term) ||
-                p.type.toLowerCase().includes(term) ||
-                p.description.toLowerCase().includes(term)
-            );
-
-            displaySearchResults(filtered);
-        });
-
-        // Display Results in Dropdown
-        function displaySearchResults(items) {
-            searchResults.innerHTML = '';
-
-            if (items.length === 0) {
-                searchResults.innerHTML = '<div class="search-no-results">No se encontraron flores 🥀</div>';
-            } else {
-                items.forEach(product => {
-                    const div = document.createElement('div');
-                    div.className = 'search-item';
-                    div.innerHTML = `
-                        <img src="${product.image}" alt="${product.name}">
-                        <div class="search-item-info">
-                            <h4>${product.name}</h4>
-                            <p>${product.type}</p>
-                            <span>${formatPrice(PRICE_DOCENA)}</span>
-                        </div>
-                    `;
-                    div.addEventListener('click', () => {
-                        openModal(product.id);
-                        searchResults.style.display = 'none'; // Close after selection
-                        searchInput.value = ''; // Optional: clear input
-                    });
-                    searchResults.appendChild(div);
-                });
-            }
-            searchResults.style.display = 'block';
-        }
-
-        // Close search results when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-container')) {
-                searchResults.style.display = 'none';
-            }
-        });
-    }
 
     // --- CART FUNCTIONS ---
     function toggleCart() {

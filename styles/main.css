@@ -195,6 +195,51 @@ img {
 }
 
 /* =========================================
+   MODERN SEARCH BAR
+   ========================================= */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    /* Square with rounded corners */
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    /* Visible border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-input-modern {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    width: 150px;
+    /* Fixed width, always visible */
+}
+
+.search-btn-modern {
+    background: var(--color-primary);
+    /* Green background */
+    border: none;
+    cursor: pointer;
+    color: white;
+    /* White icon */
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    transition: background 0.2s;
+}
+
+.search-btn-modern:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* =========================================
    HEADER
    ========================================= */
 .site-header {
@@ -344,7 +389,8 @@ img {
    ========================================= */
 .lang-floating-container {
     position: fixed;
-    bottom: 25px;
+    bottom: 10px;
+    /* Lower position */
     left: 25px;
     z-index: 9999;
     display: flex;
