@@ -479,12 +479,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (searchBtn && searchInput && searchResults) {
         // Toggle Search Bar
+        // Toggle Search Overlay
         searchBtn.addEventListener('click', () => {
-            searchInput.classList.toggle('active');
-            if (searchInput.classList.contains('active')) {
-                searchInput.focus();
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                document.body.classList.toggle('search-active');
+                const isActive = document.body.classList.contains('search-active');
+
+                if (isActive) {
+                    searchInput.classList.add('active');
+                    setTimeout(() => searchInput.focus(), 100);
+                    searchBtn.innerHTML = '✕'; // Change to X
+                } else {
+                    searchInput.classList.remove('active');
+                    searchResults.style.display = 'none';
+                    searchBtn.innerHTML = '🔍'; // Change back to coin
+                    searchInput.value = ''; // Clear on close
+                }
             } else {
-                searchResults.style.display = 'none'; // Hide results when closing
+                // Desktop behavior (existing)
+                searchInput.classList.toggle('active');
+                if (searchInput.classList.contains('active')) {
+                    searchInput.focus();
+                } else {
+                    searchResults.style.display = 'none';
+                }
             }
         });
 
@@ -521,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="search-item-info">
                             <h4>${product.name}</h4>
                             <p>${product.type}</p>
-                            <span>$${product.price.toLocaleString()}</span>
+                            <span>${formatPrice(PRICE_DOCENA)}</span>
                         </div>
                     `;
                     div.addEventListener('click', () => {
