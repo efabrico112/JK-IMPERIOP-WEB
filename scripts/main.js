@@ -478,22 +478,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     if (searchBtn && searchInput && searchResults) {
-        // Toggle Search Bar
-        searchBtn.addEventListener('click', () => {
-            searchInput.classList.toggle('active');
-            if (searchInput.classList.contains('active')) {
-                searchInput.focus();
-            } else {
-                searchResults.style.display = 'none'; // Hide results when closing
+        // Toggle Search Bar (No longer needed for visible input, but kept for mobile icon fallback)
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => {
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    // Previous Mobile logic or simply focus input
+                    searchInput.scrollIntoView({ behavior: 'smooth' });
+                    searchInput.focus();
+                } else {
+                    searchInput.focus();
+                }
+            });
+        }
+
+        // Live Search Input + Focus Suggestions
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim().length === 0) {
+                // Show "Popular" or "All Varieties" on empty focus
+                displaySearchResults(products.slice(0, 5)); // Show first 5 as suggestions
             }
         });
 
-        // Live Search Input
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase().trim();
 
             if (term.length === 0) {
-                searchResults.style.display = 'none';
+                // Keep showing suggestions if empty
+                displaySearchResults(products.slice(0, 5));
                 return;
             }
 
