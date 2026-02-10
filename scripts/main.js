@@ -6,19 +6,45 @@ const translations = {
         nav_catalog: "Catálogo",
         nav_wholesale: "Mayoristas",
         nav_contact: "Contacto",
-        search_placeholder: "Buscar flores...",
+        search_placeholder: "Buscar...",
         hero_title: "Elegancia Natural",
         hero_subtitle: "Flores premium para momentos inolvidables.",
         hero_btn: "Ver Colección",
         hero_title_2: "Calidad Exportación",
         hero_subtitle_2: "Directo de la sabana de Bogotá a tus manos.",
+        hero_title_3: "Frescura Garantizada",
+        hero_subtitle_3: "Duración superior y colores vibrantes.",
+        hero_title_4: "Diseño Floral",
+        hero_subtitle_4: "Arte y naturaleza en cada arreglo.",
+        value_title_1: "Calidad Tipo Exportación",
+        value_desc_1: "Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de Bogotá, con estándares internacionales.",
+        value_title_2: "Frescura Garantizada",
+        value_desc_2: "Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días en florero con el cuidado adecuado.",
+        value_title_3: "Atención Mayorista",
+        value_desc_3: "Precios especiales para floristerías y eventos. Capacidad para grandes volúmenes con logística especializada.",
+        about_title: "Nuestra Historia",
+        about_p1: "En JK IMPERIO hacemos algo sencillo pero potente: entregamos flores que cumplen con lo que prometen.",
+        about_p2: "Nacimos para resolver un problema que conocemos bien —cuando organizábamos eventos, siempre faltaban volúmenes, variedad o flores con calidad constante— así que creamos una tienda virtual que combina stock mayorista, selección curada y una experiencia de compra pensada para quien vende y para quien regala.",
+        about_p3: "Trabajamos directo con productores y centros de acopio, controlamos frescura y disponibilidad, y ofrecemos precios y presentaciones claras para compras al por mayor y al por menor. Si buscas volumen, trazabilidad y una atención que entiende tu negocio, JK IMPERIO está para que nunca te falten flores en el momento clave.",
+        btn_contact: "Contáctanos",
+        shop_title: "Nuestras Flores",
+        shop_subtitle: "La selección más exclusiva para tus momentos especiales.",
+        filter_all: "Todas",
+        filter_reds: "🔴 Rojas",
+        filter_whites: "⚪ Blancas",
+        filter_pinks: "🌸 Rosadas",
+        filter_yellows: "☀️ Amarillas/Naranjas",
+        filter_vintage: "🍂 Vintage",
+        wholesale_title: "Aliados de tu Negocio",
+        wholesale_desc: "¿Tienes una floristería o organizas eventos? Accede a precios especiales y atención personalizada para compras al por mayor.",
+        wholesale_btn: "SOLICITAR CATÁLOGO MAYORISTA",
         cart_title: "Tu Carrito 🌸",
         cart_empty: "Tu carrito está vacío.",
         cart_checkout: "Confirmar Pedido (WhatsApp)",
         modal_desc: "📝 Descripción",
         modal_occasion: "🎉 Ocasión Perfecta",
         modal_care: "💧 Manual de Cuidado",
-        modal_add: "Agregar al Carrito",
+        modal_add: "Agregar al Carrito 🛒",
         btn_add: "Agregar",
         stems_label: "24 Tallos"
     },
@@ -28,87 +54,139 @@ const translations = {
         nav_catalog: "Catalog",
         nav_wholesale: "Wholesale",
         nav_contact: "Contact",
-        search_placeholder: "Search flowers...",
+        search_placeholder: "Search...",
         hero_title: "Natural Elegance",
         hero_subtitle: "Premium flowers for unforgettable moments.",
         hero_btn: "View Collection",
         hero_title_2: "Export Quality",
         hero_subtitle_2: "Direct from the Bogota savanna to your hands.",
+        hero_title_3: "Guaranteed Freshness",
+        hero_subtitle_3: "Superior duration and vibrant colors.",
+        hero_title_4: "Floral Design",
+        hero_subtitle_4: "Art and nature in every arrangement.",
+        value_title_1: "Export Quality",
+        value_desc_1: "Our flowers are selected from the best crops in the Bogota Savanna, with international standards.",
+        value_title_2: "Guaranteed Freshness",
+        value_desc_2: "Direct from the farm to your hands. We guarantee superior duration of 5+ days in vase with proper care.",
+        value_title_3: "Wholesale Attention",
+        value_desc_3: "Special prices for florists and events. Capacity for large volumes with specialized logistics.",
+        about_title: "Our Story",
+        about_p1: "At JK IMPERIO we do something simple but powerful: we deliver flowers that keep their promise.",
+        about_p2: "We were born to solve a problem we know well —when we organized events, volume, variety, or consistent quality were always missing— so we created a virtual store that combines wholesale stock, curated selection, and a shopping experience designed for those who sell and those who gift.",
+        about_p3: "We work directly with producers and collection centers, control freshness and availability, and offer clear prices and presentations for wholesale and retail purchases. If you are looking for volume, traceability, and service that understands your business, JK IMPERIO is here so you never lack flowers at the key moment.",
+        btn_contact: "Contact Us",
+        shop_title: "Our Flowers",
+        shop_subtitle: "The most exclusive selection for your special moments.",
+        filter_all: "All",
+        filter_reds: "🔴 Reds",
+        filter_whites: "⚪ Whites",
+        filter_pinks: "🌸 Pinks",
+        filter_yellows: "☀️ Yellows/Oranges",
+        filter_vintage: "🍂 Vintage",
+        wholesale_title: "Business Partners",
+        wholesale_desc: "Do you own a flower shop or organize events? Access special prices and personalized attention for wholesale purchases.",
+        wholesale_btn: "REQUEST WHOLESALE CATALOG",
         cart_title: "Your Cart 🌸",
         cart_empty: "Your cart is empty.",
         cart_checkout: "Checkout (WhatsApp)",
         modal_desc: "📝 Description",
         modal_occasion: "🎉 Perfect Occasion",
-        modal_care: "💧 Care Instructions",
-        modal_add: "Add to Cart",
+        modal_care: "💧 Care Manual",
+        modal_add: "Add to Cart 🛒",
         btn_add: "Add",
         stems_label: "24 Stems"
     },
+    // ... (Repeat for PT, IT, DE with placeholders or translations)
+    // For brevity in this tool call, I will include key translations for other languages too to avoid 'undefined'
     pt: {
-        nav_home: "Início",
-        nav_about: "Sobre Nós",
-        nav_catalog: "Catálogo",
-        nav_wholesale: "Atacado",
-        nav_contact: "Contato",
-        search_placeholder: "Buscar flores...",
+        nav_home: "Início", nav_about: "Sobre Nós", nav_catalog: "Catálogo", nav_wholesale: "Atacado", nav_contact: "Contato",
+        search_placeholder: "Buscar...",
+        about_title: "Nossa História",
+        about_p1: "Na JK IMPERIO fazemos algo simples mas poderoso: entregamos flores que cumprem o que prometem.",
+        shop_title: "Nossas Flores", shop_subtitle: "A seleção mais exclusiva para seus momentos especiais.",
+        wholesale_btn: "SOLICITAR CATÁLOGO DE ATACADO",
         hero_title: "Elegância Natural",
         hero_subtitle: "Flores premium para momentos inesquecíveis.",
         hero_btn: "Ver Coleção",
         hero_title_2: "Qualidade de Exportação",
         hero_subtitle_2: "Direto da savana de Bogotá para suas mãos.",
-        cart_title: "Seu Carrinho 🌸",
-        cart_empty: "Seu carrinho está vazio.",
-        cart_checkout: "Finalizar Pedido (WhatsApp)",
-        modal_desc: "📝 Descrição",
-        modal_occasion: "🎉 Ocasião Perfeita",
-        modal_care: "💧 Instruções de Cuidado",
-        modal_add: "Adicionar ao Carrinho",
-        btn_add: "Adicionar",
-        stems_label: "24 Hastes"
+        hero_title_3: "Frescor Garantido",
+        hero_subtitle_3: "Duração superior e cores vibrantes.",
+        hero_title_4: "Design Floral",
+        hero_subtitle_4: "Arte e natureza em cada arranjo.",
+        value_title_1: "Qualidade de Exportação",
+        value_desc_1: "Nossas flores são selecionadas das melhores colheitas da Savana de Bogotá, com padrões internacionais.",
+        value_title_2: "Frescor Garantido",
+        value_desc_2: "Direto do cultivo para suas mãos. Garantimos duração superior a 5 dias no vaso com o cuidado adequado.",
+        value_title_3: "Atendimento Atacadista",
+        value_desc_3: "Preços especiais para floriculturas e eventos. Capacidade para grandes volumes com logística especializada.",
+        about_p2: "Nascemos para resolver um problema que conhecemos bem —quando organizávamos eventos, sempre faltavam volumes, variedade ou flores com qualidade constante— assim criamos uma loja virtual que combina estoque de atacado, seleção curada e uma experiência de compra pensada para quem vende e para quem presenteia.",
+        about_p3: "Trabalhamos direto com produtores e centros de coleta, controlamos frescor e disponibilidade, e oferecemos preços e apresentações claras para compras no atacado e varejo. Se você busca volume, rastreabilidade e um atendimento que entende seu negócio, a JK IMPERIO está aqui para que nunca faltem flores no momento chave.",
+        btn_contact: "Contate-nos",
+        filter_all: "Todas", filter_reds: "🔴 Vermelhas", filter_whites: "⚪ Brancas", filter_pinks: "🌸 Rosas", filter_yellows: "☀️ Amarelas/Laranjas", filter_vintage: "🍂 Vintage",
+        wholesale_title: "Parceiros do seu Negócio", wholesale_desc: "Você tem uma floricultura ou organiza eventos? Acesse preços especiais e atendimento personalizado para compras no atacado.",
+        cart_title: "Seu Carrinho 🌸", cart_empty: "Seu carrinho está vazio.", cart_checkout: "Finalizar Pedido (WhatsApp)",
+        modal_desc: "📝 Descrição", modal_occasion: "🎉 Ocasião Perfeita", modal_care: "💧 Manual de Cuidado", modal_add: "Adicionar ao Carrinho 🛒", btn_add: "Adicionar", stems_label: "24 Hastes"
     },
     it: {
-        nav_home: "Home",
-        nav_about: "Chi Siamo",
-        nav_catalog: "Catalogo",
-        nav_wholesale: "Ingrosso",
-        nav_contact: "Contatto",
-        search_placeholder: "Cerca fiori...",
+        nav_home: "Home", nav_about: "Chi Siamo", nav_catalog: "Catalogo", nav_wholesale: "Ingrosso", nav_contact: "Contatto",
+        search_placeholder: "Cerca...",
+        about_title: "La Nostra Storia",
+        about_p1: "In JK IMPERIO facciamo qualcosa di semplice ma potente: consegniamo fiori che mantengono ciò che promettono.",
+        shop_title: "I Nostri Fiori", shop_subtitle: "La selezione più esclusiva per i tuoi momenti speciali.",
+        wholesale_btn: "RICHIEDI CATALOGO INGROSSO",
         hero_title: "Eleganza Naturale",
         hero_subtitle: "Fiori premium per momenti indimenticabili.",
         hero_btn: "Vedi Collezione",
         hero_title_2: "Qualità Export",
         hero_subtitle_2: "Direttamente dalla savana di Bogotà alle tue mani.",
-        cart_title: "Il Tuo Carrello 🌸",
-        cart_empty: "Il tuo carrello è vuoto.",
-        cart_checkout: "Ordina (WhatsApp)",
-        modal_desc: "📝 Descrizione",
-        modal_occasion: "🎉 Occasione Perfetta",
-        modal_care: "💧 Istruzioni per la Cura",
-        modal_add: "Aggiungi al Carrello",
-        btn_add: "Aggiungi",
-        stems_label: "24 Steli"
+        hero_title_3: "Freschezza Garantita",
+        hero_subtitle_3: "Durata superiore e colori vibranti.",
+        hero_title_4: "Design Floreale",
+        hero_subtitle_4: "Arte e natura in ogni composizione.",
+        value_title_1: "Qualità Export",
+        value_desc_1: "I nostri fiori sono selezionati dalle migliori coltivazioni della Savana di Bogotà, con standard internazionali.",
+        value_title_2: "Freschezza Garantita",
+        value_desc_2: "Direttamente dalla coltivazione alle tue mani. Garantiamo una durata superiore a 5 giorni nel vaso con la cura adeguata.",
+        value_title_3: "Attenzione all'Ingrosso",
+        value_desc_3: "Prezzi speciali per fioristi ed eventi. Capacità per grandi volumi con logistica specializzata.",
+        about_p2: "Siamo nati per risolvere un problema che conosciamo bene —quando organizzavamo eventi, mancavano sempre volumi, varietà o fiori con qualità costante— così abbiamo creato un negozio virtuale che unisce stock all'ingrosso, selezione curata e un'esperienza di acquisto pensata per chi vende e per chi regala.",
+        about_p3: "Lavoriamo direttamente con produttori e centri di raccolta, controlliamo freschezza e disponibilità, e offriamo prezzi e presentazioni chiare per acquisti all'ingrosso e al dettaglio. Se cerchi volume, tracciabilità e un servizio che capisce il tuo business, JK IMPERIO è qui affinché non manchino mai fiori nel momento chiave.",
+        btn_contact: "Contattaci",
+        filter_all: "Tutti", filter_reds: "🔴 Rossi", filter_whites: "⚪ Bianchi", filter_pinks: "🌸 Rosa", filter_yellows: "☀️ Gialli/Arancioni", filter_vintage: "🍂 Vintage",
+        wholesale_title: "Partner del tuo Business", wholesale_desc: "Hai un fioraio o organizzi eventi? Accedi a prezzi speciali e attenzione personalizzata per acquisti all'ingrosso.",
+        cart_title: "Il Tuo Carrello 🌸", cart_empty: "Il tuo carrello è vuoto.", cart_checkout: "Ordina (WhatsApp)",
+        modal_desc: "📝 Descrizione", modal_occasion: "🎉 Occasione Perfetta", modal_care: "💧 Istruzioni Cura", modal_add: "Aggiungi al Carrello 🛒", btn_add: "Aggiungi", stems_label: "24 Steli"
     },
     de: {
-        nav_home: "Startseite",
-        nav_about: "Über Uns",
-        nav_catalog: "Katalog",
-        nav_wholesale: "Großhandel",
-        nav_contact: "Kontakt",
-        search_placeholder: "Blumen suchen...",
+        nav_home: "Startseite", nav_about: "Über Uns", nav_catalog: "Katalog", nav_wholesale: "Großhandel", nav_contact: "Kontakt",
+        search_placeholder: "Suchen...",
+        about_title: "Unsere Geschichte",
+        about_p1: "Bei JK IMPERIO machen wir etwas Einfaches, aber Mächtiges: Wir liefern Blumen, die halten, was sie versprechen.",
+        shop_title: "Unsere Blumen", shop_subtitle: "Die exklusivste Auswahl für Ihre besonderen Momente.",
+        wholesale_btn: "GROSSHANDELSKATALOG ANFORDERN",
         hero_title: "Natürliche Eleganz",
         hero_subtitle: "Premium-Blumen für unvergessliche Momente.",
         hero_btn: "Kollektion ansehen",
         hero_title_2: "Exportqualität",
         hero_subtitle_2: "Direkt aus der Savanne von Bogota zu Ihnen.",
-        cart_title: "Ihr Warenkorb 🌸",
-        cart_empty: "Ihr Warenkorb ist leer.",
-        cart_checkout: "Bestellung bestätigen (WhatsApp)",
-        modal_desc: "📝 Beschreibung",
-        modal_occasion: "🎉 Perfekter Anlass",
-        modal_care: "💧 Pflegehinweise",
-        modal_add: "In den Warenkorb",
-        btn_add: "Hinzufügen",
-        stems_label: "24 Stiele"
+        hero_title_3: "Garantierte Frische",
+        hero_subtitle_3: "Überlegene Haltbarkeit und lebendige Farben.",
+        hero_title_4: "Blumendesign",
+        hero_subtitle_4: "Kunst und Natur in jedem Arrangement.",
+        value_title_1: "Exportqualität",
+        value_desc_1: "Unsere Blumen werden von den besten Kulturen der Savanne von Bogota ausgewählt, mit internationalen Standards.",
+        value_title_2: "Garantierte Frische",
+        value_desc_2: "Direkt vom Anbau zu Ihnen. Wir garantieren bei richtiger Pflege eine Haltbarkeit von über 5 Tagen in der Vase.",
+        value_title_3: "Großhandelsservice",
+        value_desc_3: "Sonderpreise für Floristen und Events. Kapazität für große Mengen mit spezialisierter Logistik.",
+        about_p2: "Wir wurden geboren, um ein Problem zu lösen, das wir gut kennen —wenn wir Events organisierten, fehlten immer Mengen, Vielfalt oder Blumen mit konstanter Qualität— also haben wir einen Online-Shop geschaffen, der Großhandelsbestand, kuratierte Auswahl und ein Einkaufserlebnis kombiniert, das für Verkäufer und Schenkende gedacht ist.",
+        about_p3: "Wir arbeiten direkt mit Produzenten und Sammelstellen zusammen, kontrollieren Frische und Verfügbarkeit und bieten klare Preise und Präsentationen für Groß- und Einzelhandelskäufe. Wenn Sie Volumen, Rückverfolgbarkeit und einen Service suchen, der Ihr Geschäft versteht, ist JK IMPERIO da, damit Ihnen im entscheidenden Moment nie die Blumen fehlen.",
+        btn_contact: "Kontaktieren Sie uns",
+        filter_all: "Alle", filter_reds: "🔴 Rote", filter_whites: "⚪ Weiße", filter_pinks: "🌸 Rosa", filter_yellows: "☀️ Gelbe/Orange", filter_vintage: "🍂 Vintage",
+        wholesale_title: "Partner Ihres Geschäfts", wholesale_desc: "Haben Sie einen Blumenladen oder organisieren Events? Greifen Sie auf Sonderpreise und personalisierte Betreuung für Großhandelseinkäufe zu.",
+        cart_title: "Ihr Warenkorb 🌸", cart_empty: "Ihr Warenkorb ist leer.", cart_checkout: "Bestellung bestätigen (WhatsApp)",
+        modal_desc: "📝 Beschreibung", modal_occasion: "🎉 Perfekter Anlass", modal_care: "💧 Pflegeanleitung", modal_add: "In den Warenkorb 🛒", btn_add: "Hinzufügen", stems_label: "24 Stiele"
     }
 };
 
@@ -118,30 +196,21 @@ function changeLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('siteLang', lang);
 
-    // Update Button Text & Flag
-    const langBtnText = document.querySelector('.lang-text');
-    const langBtnFlag = document.querySelector('.lang-flag');
-
-    // Map codes to FlagCDN codes and Labels
-    const langConfig = {
-        es: { flag: 'es', label: 'ES' },
-        en: { flag: 'us', label: 'EN' },
-        pt: { flag: 'br', label: 'PT' },
-        it: { flag: 'it', label: 'IT' },
-        de: { flag: 'de', label: 'DE' }
-    };
-
-    if (langBtnText && langBtnFlag && langConfig[lang]) {
-        langBtnText.innerText = langConfig[lang].label;
-        langBtnFlag.src = `https://flagcdn.com/w40/${langConfig[lang].flag}.png`;
-        langBtnFlag.alt = langConfig[lang].label;
+    // Update Floating Button Flag
+    const currentFlag = document.getElementById('current-lang-flag');
+    if (currentFlag) {
+        const flagMap = { es: 'es', en: 'us', pt: 'br', it: 'it', de: 'de' };
+        currentFlag.src = `https://flagcdn.com/w40/${flagMap[lang]}.png`;
     }
 
     // Translate Elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) { // Safer check
-            if (el.tagName === 'INPUT') {
+        if (translations[lang] && translations[lang][key]) {
+            // Check if element has innerHTML with strong tags (like first p of about)
+            if (el.innerHTML.includes('<strong>') && translations[lang][key].includes('<strong>')) {
+                el.innerHTML = translations[lang][key];
+            } else if (el.tagName === 'INPUT') {
                 el.placeholder = translations[lang][key];
             } else {
                 el.innerText = translations[lang][key];
@@ -149,13 +218,22 @@ function changeLanguage(lang) {
         }
     });
 
-    // Re-render Products to apply translation (if products are available)
+    // Re-render Products
     if (typeof window.products !== 'undefined' && typeof renderProducts === 'function') {
         renderProducts(window.products);
     }
 
-    // Translate Dynamic Elements (Cart, etc. if needed)
+    // Dynamic Content
     updateDynamicContent();
+}
+
+// Re-render Products to apply translation (if products are available)
+if (typeof window.products !== 'undefined' && typeof renderProducts === 'function') {
+    renderProducts(window.products);
+}
+
+// Translate Dynamic Elements (Cart, etc. if needed)
+updateDynamicContent();
 }
 
 function updateDynamicContent() {
@@ -169,11 +247,7 @@ function updateDynamicContent() {
 
 // Initialize Language on Load
 document.addEventListener('DOMContentLoaded', () => {
-    // changeLanguage called at the end to ensure products are loaded
-    // ... existing initialization ...
-    console.log('JK IMPERIO Loaded');
-
-    // Mobile Menu Toggle
+    // --- Mobile Menu Toggle ---
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
@@ -181,6 +255,39 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
             menuToggle.classList.toggle('open');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                menuToggle.classList.remove('open');
+            });
+        });
+    }
+
+    // --- Search Logic (New Modern Bar) ---
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+
+    if (searchInput && searchBtn) {
+        const performSearch = () => {
+            const query = searchInput.value.toLowerCase().trim();
+            if (!window.products) return;
+
+            const filtered = window.products.filter(p =>
+                p.name.toLowerCase().includes(query) ||
+                p.type.toLowerCase().includes(query)
+            );
+
+            // Scroll to shop
+            document.getElementById('shop-retail')?.scrollIntoView({ behavior: 'smooth' });
+            renderProducts(filtered);
+        };
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
         });
     }
 

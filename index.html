@@ -42,39 +42,24 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <!-- Language Selector -->
-                <!-- Language Selector -->
-                <div class="lang-selector">
-                    <button class="lang-btn">
-                        <img src="https://flagcdn.com/w40/es.png" alt="ES" class="lang-flag">
-                        <span class="lang-text">ES</span>
-                        <span class="arrow-down">▼</span>
+                <!-- Language Selector Removed -->
+                <!-- Search Bar (Redesigned) -->
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar..." data-i18n="search_placeholder"
+                        class="search-input-modern">
+                    <button id="search-btn" class="search-btn-modern">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
                     </button>
-                    <div class="lang-dropdown">
-                        <span onclick="changeLanguage('es')">
-                            <img src="https://flagcdn.com/w40/es.png" alt="ES"> Español
-                        </span>
-                        <span onclick="changeLanguage('en')">
-                            <img src="https://flagcdn.com/w40/us.png" alt="EN"> English
-                        </span>
-                        <span onclick="changeLanguage('pt')">
-                            <img src="https://flagcdn.com/w40/br.png" alt="PT"> Português
-                        </span>
-                        <span onclick="changeLanguage('it')">
-                            <img src="https://flagcdn.com/w40/it.png" alt="IT"> Italiano
-                        </span>
-                        <span onclick="changeLanguage('de')">
-                            <img src="https://flagcdn.com/w40/de.png" alt="DE"> Deutsch
-                        </span>
-                    </div>
                 </div>
 
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Buscar flores..." data-i18n="search_placeholder">
-                    <button id="search-btn" class="btn-icon" aria-label="Buscar">🔍</button>
-                    <div id="search-results" class="search-results"></div>
-                </div>
-                <a href="#" class="btn-icon" id="cart-btn">🛒 <span class="cart-count">0</span></a>
+                <!-- Cart Icon -->
+                <button id="cart-btn" class="btn-icon cart-icon">
+                    🛒 <span class="cart-count">0</span>
+                </button>
             </div>
             <button class="menu-toggle" aria-label="Abrir menú">
                 <span></span>
@@ -133,16 +118,16 @@
             <div class="slide"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_21_17.png?v=1770663826');">
                 <div class="hero-content">
-                    <h1>Frescura Garantizada</h1>
-                    <p>Duración superior y colores vibrantes.</p>
+                    <h1 data-i18n="hero_title_3">Frescura Garantizada</h1>
+                    <p data-i18n="hero_subtitle_3">Duración superior y colores vibrantes.</p>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
             <div class="slide"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_23_16.png?v=1770663826');">
                 <div class="hero-content">
-                    <h1>Diseño Floral</h1>
-                    <p>Arte y naturaleza en cada arreglo.</p>
+                    <h1 data-i18n="hero_title_4">Diseño Floral</h1>
+                    <p data-i18n="hero_subtitle_4">Arte y naturaleza en cada arreglo.</p>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
@@ -162,18 +147,21 @@
     <section class="value-prop section-padding">
         <div class="container grid-3">
             <div class="value-card">
-                <h3>Calidad Tipo Exportación</h3>
-                <p>Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de Bogotá, con estándares
+                <h3 data-i18n="value_title_1">Calidad Tipo Exportación</h3>
+                <p data-i18n="value_desc_1">Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de
+                    Bogotá, con estándares
                     internacionales.</p>
             </div>
             <div class="value-card">
-                <h3>Frescura Garantizada</h3>
-                <p>Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días en florero con el
+                <h3 data-i18n="value_title_2">Frescura Garantizada</h3>
+                <p data-i18n="value_desc_2">Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días
+                    en florero con el
                     cuidado adecuado.</p>
             </div>
             <div class="value-card">
-                <h3>Atención Mayorista</h3>
-                <p>Precios especiales para floristerías y eventos. Capacidad para grandes volúmenes con logística
+                <h3 data-i18n="value_title_3">Atención Mayorista</h3>
+                <p data-i18n="value_desc_3">Precios especiales para floristerías y eventos. Capacidad para grandes
+                    volúmenes con logística
                     especializada.</p>
             </div>
         </div>
@@ -188,20 +176,24 @@
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0747/5471/9899/files/descarga_22.jpg?v=1770444942'); background-size: cover; min-height: 400px; border-radius: 4px;">
             </div>
             <div class="text-content">
-                <h2>Nuestra Historia</h2>
+                <h2 data-i18n="about_title">Nuestra Historia</h2>
                 <div class="about-text">
-                    <p>En <strong>JK IMPERIO</strong> hacemos algo sencillo pero potente: entregamos flores que cumplen
+                    <p data-i18n="about_p1">En <strong>JK IMPERIO</strong> hacemos algo sencillo pero potente:
+                        entregamos flores que cumplen
                         con lo que prometen.</p>
-                    <p>Nacimos para resolver un problema que conocemos bien —cuando organizábamos eventos, siempre
+                    <p data-i18n="about_p2">Nacimos para resolver un problema que conocemos bien —cuando organizábamos
+                        eventos, siempre
                         faltaban volúmenes, variedad o flores con calidad constante— así que creamos una tienda virtual
                         que combina stock mayorista, selección curada y una experiencia de compra pensada para quien
                         vende y para quien regala.</p>
-                    <p>Trabajamos directo con productores y centros de acopio, controlamos frescura y disponibilidad, y
+                    <p data-i18n="about_p3">Trabajamos directo con productores y centros de acopio, controlamos frescura
+                        y disponibilidad, y
                         ofrecemos precios y presentaciones claras para compras al por mayor y al por menor. Si buscas
                         volumen, trazabilidad y una atención que entiende tu negocio, JK IMPERIO está para que nunca te
                         falten flores en el momento clave.</p>
                 </div>
-                <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;">Contáctanos</a>
+                <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;"
+                    data-i18n="btn_contact">Contáctanos</a>
             </div>
         </div>
     </section>
@@ -210,19 +202,20 @@
     <section id="shop-retail" class="shop-section section-padding">
         <div class="container">
             <div class="section-header text-center">
-                <h2>Nuestras Flores</h2>
-                <p>La selección más exclusiva para tus momentos especiales.</p>
+                <h2 data-i18n="shop_title">Nuestras Flores</h2>
+                <p data-i18n="shop_subtitle">La selección más exclusiva para tus momentos especiales.</p>
             </div>
 
             <!-- Filters (Optional but good for UX) -->
             <!-- Filters (Color Based) -->
             <div class="shop-filters text-center">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="reds">🔴 Rojas</button>
-                <button class="filter-btn" data-filter="whites">⚪ Blancas</button>
-                <button class="filter-btn" data-filter="pinks">🌸 Rosadas</button>
-                <button class="filter-btn" data-filter="yellows">☀️ Amarillas/Naranjas</button>
-                <button class="filter-btn" data-filter="vintage">🍂 Vintage</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todas</button>
+                <button class="filter-btn" data-filter="reds" data-i18n="filter_reds">🔴 Rojas</button>
+                <button class="filter-btn" data-filter="whites" data-i18n="filter_whites">⚪ Blancas</button>
+                <button class="filter-btn" data-filter="pinks" data-i18n="filter_pinks">🌸 Rosadas</button>
+                <button class="filter-btn" data-filter="yellows" data-i18n="filter_yellows">☀️
+                    Amarillas/Naranjas</button>
+                <button class="filter-btn" data-filter="vintage" data-i18n="filter_vintage">🍂 Vintage</button>
             </div>
 
             <!-- Product Grid -->
@@ -237,11 +230,12 @@
     <section id="shop-wholesale" class="wholesale-cta section-padding">
         <div class="container split-layout">
             <div class="text-content">
-                <h2>Aliados de tu Negocio</h2>
-                <p>¿Tienes una floristería o organizas eventos? Accede a precios especiales y atención personalizada
+                <h2 data-i18n="wholesale_title">Aliados de tu Negocio</h2>
+                <p data-i18n="wholesale_desc">¿Tienes una floristería o organizas eventos? Accede a precios especiales y
+                    atención personalizada
                     para compras al por mayor.</p>
                 <a href="https://wa.me/573002963698?text=Hola%20JK%20IMPERIO,%20estoy%20interesado%20en%20el%20cat%C3%A1logo%20mayorista"
-                    target="_blank" class="btn btn-primary">SOLICITAR CATÁLOGO MAYORISTA</a>
+                    target="_blank" class="btn btn-primary" data-i18n="wholesale_btn">SOLICITAR CATÁLOGO MAYORISTA</a>
             </div>
             <div class="image-content">
                 <!-- Wholesale Video -->
@@ -367,6 +361,25 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Floating Language Selector (Bottom Left) -->
+    <div class="lang-floating-container">
+        <div class="lang-options">
+            <button onclick="changeLanguage('es')" class="lang-option" title="Español"><img
+                    src="https://flagcdn.com/w40/es.png" alt="ES"></button>
+            <button onclick="changeLanguage('en')" class="lang-option" title="English"><img
+                    src="https://flagcdn.com/w40/us.png" alt="EN"></button>
+            <button onclick="changeLanguage('pt')" class="lang-option" title="Português"><img
+                    src="https://flagcdn.com/w40/br.png" alt="PT"></button>
+            <button onclick="changeLanguage('it')" class="lang-option" title="Italiano"><img
+                    src="https://flagcdn.com/w40/it.png" alt="IT"></button>
+            <button onclick="changeLanguage('de')" class="lang-option" title="Deutsch"><img
+                    src="https://flagcdn.com/w40/de.png" alt="DE"></button>
+        </div>
+        <button class="lang-toggle-btn">
+            <img src="https://flagcdn.com/w40/es.png" alt="Current Lang" id="current-lang-flag">
+        </button>
     </div>
 
     <!-- Scripts -->
