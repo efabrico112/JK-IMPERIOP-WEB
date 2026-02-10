@@ -531,7 +531,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (results.length === 0) {
                 searchResults.innerHTML = '<div class="search-no-results">No encontramos flores con ese nombre.</div>';
                 return;
-            } results.forEach(product => {
+            }
+
+            results.forEach(product => {
                 const div = document.createElement('div');
                 div.className = 'search-item';
                 div.innerHTML = `
@@ -539,18 +541,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="search-item-info">
                             <h4>${product.name}</h4>
                             <p>${product.type}</p>
-                            <span>${formatPrice(PRICE_DOCENA)}</span> <!-- Fixed Price -->
+                            <span>${formatPrice(getPrice(product))}</span>
                         </div>
                     `;
                 div.addEventListener('click', () => {
                     openModal(product.id);
-                    searchResults.style.display = 'none'; // Close after selection
-                    searchInput.value = ''; // Optional: clear input
+                    searchResults.classList.remove('show');
+                    setTimeout(() => {
+                        searchResults.style.display = 'none';
+                    }, 300);
+                    searchInput.value = '';
                 });
                 searchResults.appendChild(div);
             });
         }
-        searchResults.style.display = 'block';
     }
 
     // Close search results when clicking outside
@@ -572,6 +576,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 if (closeSidebar) closeSidebar.addEventListener('click', toggleCart);
+
+// Helper to safely get price
+function getPrice(product) {
+    if (product.price) return product.price;
+    return PRICE_DOCENA; // Fallback
+}
 
 // Make available globally for inline onclicks
 window.addToCart = function (id) {
