@@ -19,7 +19,8 @@ const translations = {
         modal_occasion: "🎉 Ocasión Perfecta",
         modal_care: "💧 Manual de Cuidado",
         modal_add: "Agregar al Carrito",
-        btn_add: "Agregar"
+        btn_add: "Agregar",
+        stems_label: "24 Tallos"
     },
     en: {
         nav_home: "Home",
@@ -40,7 +41,8 @@ const translations = {
         modal_occasion: "🎉 Perfect Occasion",
         modal_care: "💧 Care Instructions",
         modal_add: "Add to Cart",
-        btn_add: "Add"
+        btn_add: "Add",
+        stems_label: "24 Stems"
     },
     pt: {
         nav_home: "Início",
@@ -61,7 +63,8 @@ const translations = {
         modal_occasion: "🎉 Ocasião Perfeita",
         modal_care: "💧 Instruções de Cuidado",
         modal_add: "Adicionar ao Carrinho",
-        btn_add: "Adicionar"
+        btn_add: "Adicionar",
+        stems_label: "24 Hastes"
     },
     it: {
         nav_home: "Home",
@@ -82,7 +85,8 @@ const translations = {
         modal_occasion: "🎉 Occasione Perfetta",
         modal_care: "💧 Istruzioni per la Cura",
         modal_add: "Aggiungi al Carrello",
-        btn_add: "Aggiungi"
+        btn_add: "Aggiungi",
+        stems_label: "24 Steli"
     },
     de: {
         nav_home: "Startseite",
@@ -103,7 +107,8 @@ const translations = {
         modal_occasion: "🎉 Perfekter Anlass",
         modal_care: "💧 Pflegehinweise",
         modal_add: "In den Warenkorb",
-        btn_add: "Hinzufügen"
+        btn_add: "Hinzufügen",
+        stems_label: "24 Stiele"
     }
 };
 
@@ -113,15 +118,29 @@ function changeLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('siteLang', lang);
 
-    // Update Button Text
-    const langBtn = document.querySelector('.lang-btn');
-    const flags = { es: '🌐 ES', en: '🇺🇸 EN', pt: '🇧🇷 PT', it: '🇮🇹 IT', de: '🇩🇪 DE' };
-    if (langBtn) langBtn.innerText = flags[lang];
+    // Update Button Text & Flag
+    const langBtnText = document.querySelector('.lang-text');
+    const langBtnFlag = document.querySelector('.lang-flag');
+
+    // Map codes to FlagCDN codes and Labels
+    const langConfig = {
+        es: { flag: 'es', label: 'ES' },
+        en: { flag: 'us', label: 'EN' },
+        pt: { flag: 'br', label: 'PT' },
+        it: { flag: 'it', label: 'IT' },
+        de: { flag: 'de', label: 'DE' }
+    };
+
+    if (langBtnText && langBtnFlag && langConfig[lang]) {
+        langBtnText.innerText = langConfig[lang].label;
+        langBtnFlag.src = `https://flagcdn.com/w40/${langConfig[lang].flag}.png`;
+        langBtnFlag.alt = langConfig[lang].label;
+    }
 
     // Translate Elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) { // Safer check
             if (el.tagName === 'INPUT') {
                 el.placeholder = translations[lang][key];
             } else {
@@ -129,6 +148,11 @@ function changeLanguage(lang) {
             }
         }
     });
+
+    // Re-render Products to apply translation (if products are available)
+    if (typeof window.products !== 'undefined' && typeof renderProducts === 'function') {
+        renderProducts(window.products);
+    }
 
     // Translate Dynamic Elements (Cart, etc. if needed)
     updateDynamicContent();
@@ -145,7 +169,7 @@ function updateDynamicContent() {
 
 // Initialize Language on Load
 document.addEventListener('DOMContentLoaded', () => {
-    changeLanguage(currentLang);
+    // changeLanguage called at the end to ensure products are loaded
     // ... existing initialization ...
     console.log('JK IMPERIO Loaded');
 
@@ -189,8 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(nextSlide, slideInterval);
     }
 
-    // --- Product Catalog (30 Items) ---
-    const products = [
+    // --- Product Catalog (Global for i18n) ---
+    window.products = [
         // Reds
         {
             id: 1,
@@ -204,6 +228,9 @@ document.addEventListener('DOMContentLoaded', () => {
             occasion: 'Aniversarios, San Valentín, propuestas de matrimonio y declaraciones de amor apasionadas.',
             care: ['Recortar tallos 2cm en diagonal.', 'Usar agua fría y cambiar cada 2 días.', 'Evitar sol directo y corrientes de aire.']
         },
+        // Wait, the file content is too large to move entirely in one go if I include all 30 products text.
+        // I will keep the products array where it is for a moment, but assign it to window.products
+
         {
             id: 2,
             name: 'Crimson Explorer',
@@ -597,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
-                    <p class="product-type">${product.type} x12</p>
+                    <p class="product-type">${product.type} • <span data-i18n="stems_label">${translations[currentLang].stems_label}</span></p>
                     <div class="product-meta">
                         <p class="product-price">${formatPrice(PRICE_DOCENA)}</p>
                         <button class="btn-add-cart" onclick="addToCart(${product.id})">🛒</button>
@@ -917,6 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Initial Render
-    renderProducts(products);
+    // Initial Render
+    changeLanguage(currentLang);
 
 });

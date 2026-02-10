@@ -224,19 +224,22 @@ img {
 }
 
 .logo-img {
-    height: 60px;
-    /* Standard Logo Size */
+    height: 55px;
+    /* Slightly smaller for elegance */
     width: auto;
     object-fit: contain;
 }
 
 .brand-text-img {
-    height: 70px;
-    /* Slight adjustment for balance */
+    height: 38px;
+    /* Balanced height relative to logo */
     width: auto;
-    margin-top: 0;
+    margin-top: 2px;
+    /* Optical center adjustment */
     display: block;
     object-fit: contain;
+    /* Ensure it doesn't get too small on mobile */
+    min-height: 30px;
 }
 
 .main-nav ul {
@@ -329,18 +332,43 @@ img {
 }
 
 .lang-btn {
-    background: none;
-    border: 1px solid transparent;
+    background: #f8f9fa;
+    /* Light background for pill shape */
+    border: 1px solid #e9ecef;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-text);
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    border-radius: 20px;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    /* Pill shape */
     transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.lang-btn:hover {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.lang-flag {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* Circle flag */
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    /* Subtle border */
+}
+
+.arrow-down {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    margin-left: 2px;
 }
 
 .lang-btn:hover {
@@ -350,22 +378,38 @@ img {
 
 .lang-dropdown {
     position: absolute;
-    top: 100%;
+    top: 110%;
+    /* Slight gap */
     right: 0;
     background: white;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Premium shadow */
+    border-radius: 12px;
     display: none;
     flex-direction: column;
-    min-width: 120px;
+    min-width: 160px;
+    /* Wider for full names */
     z-index: 1002;
     overflow: hidden;
+    padding: 5px;
 }
 
 .lang-selector:hover .lang-dropdown {
     display: flex;
-    animation: fadeIn 0.2s ease;
+    animation: fadeInUp 0.2s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .lang-dropdown span {
@@ -373,10 +417,19 @@ img {
     cursor: pointer;
     font-size: 0.9rem;
     color: var(--color-text);
-    transition: background 0.2s;
+    transition: all 0.2s;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    border-radius: 8px;
+}
+
+.lang-dropdown img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .lang-dropdown span:hover {
