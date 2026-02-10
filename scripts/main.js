@@ -337,6 +337,12 @@ function changeLanguage(lang) {
         window.updateCartUI();
     }
 
+    // Close Language Selector (Mobile Fix)
+    const langContainer = document.querySelector('.lang-floating-container');
+    if (langContainer) {
+        langContainer.classList.remove('active');
+    }
+
     // Dynamic Content
     updateDynamicContent();
 }
@@ -411,9 +417,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (filtered.length > 0) {
                 resultsContainer.style.display = 'block';
                 filtered.forEach(product => {
-                    const price = window.currencyConfig ?
-                        (window.currencyConfig[currentLang]?.symbol + ' ' + window.currencyConfig[currentLang]?.price) :
-                        '$' + product.price;
+                    // Use global currency config for consistency
+                    const config = currencyConfig[currentLang] || currencyConfig['es'];
+                    let displayPrice;
+
+                    if (config.currency === 'COP') {
+                        displayPrice = new Intl.NumberFormat('es-CO').format(config.price);
+                    } else {
+                        displayPrice = config.price.toFixed(2);
+                    }
+                    const finalPrice = `${config.symbol} ${displayPrice} ${config.suffix}`;
 
                     const item = document.createElement('div');
                     item.className = 'search-item';
@@ -422,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="search-item-info">
                             <h4>${product.name}</h4>
                             <p>${product.type} (${translations[currentLang].stems_label || '24 Tallos'})</p>
-                            <span>${price}</span>
+                            <span class="search-price">${finalPrice}</span>
                         </div>
                     `;
                     item.addEventListener('click', () => {
@@ -1213,8 +1226,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initial Render
+    // --- Language Selector Toggle (Mobile & Desktop) ---
+    const langBtn = document.querySelector('.lang-toggle-btn');
+    const langContainer = document.querySelector('.lang-floating-container');
+
+    if (langBtn && langContainer) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent closing immediately
+            langContainer.classList.toggle('active');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langContainer.contains(e.target)) {
+                langContainer.classList.remove('active');
+            }
+        });
+    }
+
     // Initial Render
     changeLanguage(currentLang);
-
 });
