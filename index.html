@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK IMPERIO | Flores Premium al Por Mayor y Detal</title>
+    <meta name="description"
+        content="Venta de flores premium al por mayor y al detal en Colombia. JK IMPERIO: Confianza, elegancia y calidad superior.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">
+                    <img src="https://cdn.shopify.com/s/files/1/0747/5471/9899/files/Logo_de_lujo_de_Flora_KJ.png?v=1770593534"
+                        alt="JK IMPERIO Logo" class="logo-img">
+                    <img src="https://cdn.shopify.com/s/files/1/0999/1615/2913/files/image_Pippit_202602091408-removebg-preview.png?v=1770664713"
+                        alt="JK IMPERIO" class="brand-text-img">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#shop-retail">Catálogo</a></li>
+                    <li><a href="#shop-wholesale">Mayoristas</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar flores...">
+                    <button id="search-btn" class="btn-icon" aria-label="Buscar">🔍</button>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+                <a href="#" class="btn-icon" id="cart-btn">🛒 <span class="cart-count">0</span></a>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ... (Hero and other sections remain) ... -->
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="sidebar-modal">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <h2>Tu Carrito 🌸</h2>
+                <span class="close-sidebar">&times;</span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Items will be injected here -->
+                <div class="empty-cart-msg">Tu carrito está vacío.</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0</span>
+                </div>
+                <button id="checkout-btn" class="btn btn-primary btn-block">Confirmar Pedido (WhatsApp)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section (Slider) -->
+    <section id="hero" class="hero-slider">
+        <div class="slider-wrapper">
+            <div class="slide active"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_24.jpg?v=1770663823');">
+                <div class="hero-content">
+                    <h1 class="fade-in-up">Elegancia Natural</h1>
+                    <p class="fade-in-up delay-1">Flores premium para momentos inolvidables.</p>
+                    <a href="#shop-retail" class="btn btn-primary fade-in-up delay-2">Ver Colección</a>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="slide"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_25.jpg?v=1770663823');">
+                <div class="hero-content">
+                    <h1>Calidad Exportación</h1>
+                    <p>Directo de la sabana de Bogotá a tus manos.</p>
+                    <a href="#shop-wholesale" class="btn btn-outline">Mayoristas</a>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="slide"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_21_17.png?v=1770663826');">
+                <div class="hero-content">
+                    <h1>Frescura Garantizada</h1>
+                    <p>Duración superior y colores vibrantes.</p>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="slide"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_23_16.png?v=1770663826');">
+                <div class="hero-content">
+                    <h1>Diseño Floral</h1>
+                    <p>Arte y naturaleza en cada arreglo.</p>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="prev-slide">&#10094;</button>
+            <button class="next-slide">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/573002963698" target="_blank" class="whatsapp-float" aria-label="Chatear en WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- Value Proposition -->
+    <section class="value-prop section-padding">
+        <div class="container grid-3">
+            <div class="value-card">
+                <h3>Calidad Tipo Exportación</h3>
+                <p>Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de Bogotá, con estándares
+                    internacionales.</p>
+            </div>
+            <div class="value-card">
+                <h3>Frescura Garantizada</h3>
+                <p>Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días en florero con el
+                    cuidado adecuado.</p>
+            </div>
+            <div class="value-card">
+                <h3>Atención Mayorista</h3>
+                <p>Precios especiales para floristerías y eventos. Capacidad para grandes volúmenes con logística
+                    especializada.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section section-padding" style="background-color: var(--color-bg-soft);">
+        <div class="container split-layout flip-mobile">
+            <div class="image-content"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0747/5471/9899/files/descarga_22.jpg?v=1770444942'); background-size: cover; min-height: 400px; border-radius: 4px;">
+            </div>
+            <div class="text-content">
+                <h2>Nuestra Historia</h2>
+                <div class="about-text">
+                    <p>En <strong>JK IMPERIO</strong> hacemos algo sencillo pero potente: entregamos flores que cumplen
+                        con lo que prometen.</p>
+                    <p>Nacimos para resolver un problema que conocemos bien —cuando organizábamos eventos, siempre
+                        faltaban volúmenes, variedad o flores con calidad constante— así que creamos una tienda virtual
+                        que combina stock mayorista, selección curada y una experiencia de compra pensada para quien
+                        vende y para quien regala.</p>
+                    <p>Trabajamos directo con productores y centros de acopio, controlamos frescura y disponibilidad, y
+                        ofrecemos precios y presentaciones claras para compras al por mayor y al por menor. Si buscas
+                        volumen, trazabilidad y una atención que entiende tu negocio, JK IMPERIO está para que nunca te
+                        falten flores en el momento clave.</p>
+                </div>
+                <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section (Retail) -->
+    <section id="shop-retail" class="shop-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Nuestras Flores</h2>
+                <p>La selección más exclusiva para tus momentos especiales.</p>
+            </div>
+
+            <!-- Filters (Optional but good for UX) -->
+            <!-- Filters (Color Based) -->
+            <div class="shop-filters text-center">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="reds">🔴 Rojas</button>
+                <button class="filter-btn" data-filter="whites">⚪ Blancas</button>
+                <button class="filter-btn" data-filter="pinks">🌸 Rosadas</button>
+                <button class="filter-btn" data-filter="yellows">☀️ Amarillas/Naranjas</button>
+                <button class="filter-btn" data-filter="vintage">🍂 Vintage</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be injected via JS -->
+                <div class="loading-state">Cargando catálogo...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale CTA -->
+    <section id="shop-wholesale" class="wholesale-cta section-padding">
+        <div class="container split-layout">
+            <div class="text-content">
+                <h2>Aliados de tu Negocio</h2>
+                <p>¿Tienes una floristería o organizas eventos? Accede a precios especiales y atención personalizada
+                    para compras al por mayor.</p>
+                <a href="https://wa.me/573002963698?text=Hola%20JK%20IMPERIO,%20estoy%20interesado%20en%20el%20cat%C3%A1logo%20mayorista"
+                    target="_blank" class="btn btn-primary">SOLICITAR CATÁLOGO MAYORISTA</a>
+            </div>
+            <div class="image-content">
+                <!-- Wholesale Video -->
+                <video autoplay muted loop playsinline
+                    style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <source src="https://cdn.shopify.com/videos/c/o/v/35cfe52d0d9c41e2be23ef32a627e295.mp4"
+                        type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Strategy -->
+    <section class="faq-section section-padding"
+        style="background-color: var(--color-white); border-top: 1px solid var(--color-bg-soft);">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: var(--spacing-lg);">
+                <h2>Preguntas Frecuentes</h2>
+            </div>
+            <div class="faq-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md); text-align: left;">
+                <div class="faq-item" style="padding: 20px; background: var(--color-bg-main); border-radius: 4px;">
+                    <h4 style="margin-bottom: 10px;">📦 ¿Hacen envíos el mismo día?</h4>
+                    <p>Sí, para pedidos realizados antes de las 11:00 AM en Bogotá, garantizamos la entrega el mismo
+                        día. Para otras ciudades, consulta tiempos de entrega.</p>
+                </div>
+                <div class="faq-item" style="padding: 20px; background: var(--color-bg-main); border-radius: 4px;">
+                    <h4 style="margin-bottom: 10px;">🌹 ¿Cuánto duran las rosas?</h4>
+                    <p>Nuestras rosas tipo exportación están hidratadas y tratadas para durar entre 8 y 12 días en
+                        florero, siguiendo nuestros tips de cuidado.</p>
+                </div>
+                <div class="faq-item" style="padding: 20px; background: var(--color-bg-main); border-radius: 4px;">
+                    <h4 style="margin-bottom: 10px;">💳 ¿Qué medios de pago aceptan?</h4>
+                    <p>Aceptamos todas las tarjetas de crédito, PSE, Nequi y Daviplata para tu comodidad y seguridad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="site-footer">
+        <div class="container grid-footer">
+            <div class="footer-brand">
+                <h3>JK IMPERIO</h3>
+                <p>Profesionalismo y elegancia en cada pétalo.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/jk_imperip/" target="_blank" class="social-icon"
+                        aria-label="Instagram">
+                        <!-- Instagram SVG -->
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" class="social-icon" aria-label="Facebook">
+                        <!-- Facebook SVG -->
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/" target="_blank" class="social-icon" aria-label="TikTok">
+                        <!-- TikTok SVG -->
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.69 2.58-4.97 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.74-1.66.56-1.09.53-2.48.53-3.71l-.03-17.47z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#shop-retail">Catálogo</a></li>
+                    <li><a href="#shop-wholesale">Mayoristas</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>Email: kjflorescolombia@gmail.com</p>
+                <p>Tel: +57 300 296 3698</p>
+                <p>Bogotá, Colombia</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 JK IMPERIO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Detalle Flor">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title">Nombre Flor</h2>
+                    <p id="modal-type" class="text-muted">Variedad</p>
+                    <div class="modal-section">
+                        <h4>📝 Descripción</h4>
+                        <p id="modal-desc">Descripción...</p>
+                    </div>
+                    <div class="modal-section">
+                        <h4>🎉 Ocasión Perfecta</h4>
+                        <p id="modal-occasion">Ocasión...</p>
+                    </div>
+                    <div class="modal-section">
+                        <h4>💧 Manual de Cuidado</h4>
+                        <ul id="modal-care">
+                            <li>Cortar tallos 2cm en diagonal.</li>
+                            <li>Cambiar agua cada 2 días.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" id="modal-add-cart">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
