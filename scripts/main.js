@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('JK IMPERIO Loaded');
+    console.log('JK IMPERIO - VERSION 10 LOADED');
 
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -563,7 +563,6 @@ document.addEventListener('DOMContentLoaded', () => {
             searchResults.style.display = 'none';
         }
     });
-}
 
     // --- CART FUNCTIONS ---
     function toggleCart() {
@@ -575,87 +574,87 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleCart();
     });
 
-if (closeSidebar) closeSidebar.addEventListener('click', toggleCart);
+    if (closeSidebar) closeSidebar.addEventListener('click', toggleCart);
 
-// Helper to safely get price
-function getPrice(product) {
-    if (product.price) return product.price;
-    return PRICE_DOCENA; // Fallback
-}
+    // Helper to safely get price
+    function getPrice(product) {
+        if (product.price) return product.price;
+        return PRICE_DOCENA; // Fallback
+    }
 
-// Make available globally for inline onclicks
-window.addToCart = function (id) {
-    const product = products.find(p => p.id === id);
-    if (product) {
-        // Updated logic: Single default variant (Docena), Price 40k
-        const existingItem = cart.find(item => item.id === id);
+    // Make available globally for inline onclicks
+    window.addToCart = function (id) {
+        const product = products.find(p => p.id === id);
+        if (product) {
+            // Updated logic: Single default variant (Docena), Price 40k
+            const existingItem = cart.find(item => item.id === id);
 
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({
-                ...product,
-                quantity: 1,
-                price: PRICE_DOCENA // Use new fixed price
-            });
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1,
+                    price: PRICE_DOCENA // Use new fixed price
+                });
+            }
+            updateCartUI();
+            if (cartModal && !cartModal.classList.contains('show')) {
+                toggleCart();
+            }
         }
-        updateCartUI();
-        if (cartModal && !cartModal.classList.contains('show')) {
-            toggleCart();
+    };
+
+    window.increaseQuantity = function (id) {
+        const item = cart.find(item => item.id === id);
+        if (item) {
+            item.quantity++;
+            updateCartUI();
         }
-    }
-};
+    };
 
-window.increaseQuantity = function (id) {
-    const item = cart.find(item => item.id === id);
-    if (item) {
-        item.quantity++;
-        updateCartUI();
-    }
-};
-
-window.decreaseQuantity = function (id) {
-    const item = cart.find(item => item.id === id);
-    if (item) {
-        item.quantity--;
-        if (item.quantity <= 0) {
-            cart = cart.filter(i => i.id !== id);
+    window.decreaseQuantity = function (id) {
+        const item = cart.find(item => item.id === id);
+        if (item) {
+            item.quantity--;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
         }
+    };
+
+    window.removeFromCart = function (id) {
+        cart = cart.filter(item => item.id !== id);
         updateCartUI();
-    }
-};
+    };
 
-window.removeFromCart = function (id) {
-    cart = cart.filter(item => item.id !== id);
-    updateCartUI();
-};
+    function updateCartUI() {
+        // Calculate Total Items
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-function updateCartUI() {
-    // Calculate Total Items
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        // Update Count
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+            cartCountElement.classList.add('bump');
+            setTimeout(() => cartCountElement.classList.remove('bump'), 300);
+        }
 
-    // Update Count
-    if (cartCountElement) {
-        cartCountElement.textContent = totalItems;
-        cartCountElement.classList.add('bump');
-        setTimeout(() => cartCountElement.classList.remove('bump'), 300);
-    }
+        // Update Items and Total
+        if (cartItemsContainer && cartTotalPrice) {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
 
-    // Update Items and Total
-    if (cartItemsContainer && cartTotalPrice) {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío 🥀</div>';
+            } else {
+                cart.forEach((item) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
 
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Tu carrito está vacío 🥀</div>';
-        } else {
-            cart.forEach((item) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-
-                const itemEl = document.createElement('div');
-                itemEl.className = 'cart-item';
-                itemEl.innerHTML = `
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+                    itemEl.innerHTML = `
                         <img src="${item.image}" alt="${item.name}">
                         <div class="cart-item-details">
                             <div class="cart-item-title">${item.name}</div>
@@ -672,111 +671,111 @@ function updateCartUI() {
                         </div>
                         <div class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Eliminar">&times;</div>
                     `;
-                cartItemsContainer.appendChild(itemEl);
+                    cartItemsContainer.appendChild(itemEl);
+                });
+            }
+            cartTotalPrice.textContent = '$' + total.toLocaleString();
+        }
+    }
+
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            let message = "Hola JK IMPERIO, deseo realizar el siguiente pedido: \n\n";
+            let total = 0;
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                message += `▪️ *(${item.quantity})* ${item.name} [Docena] - $${subtotal.toLocaleString()}\n`;
+                total += subtotal;
+            });
+            message += `\n🌺 *TOTAL A PAGAR: $${total.toLocaleString()}*`;
+            window.open(`https://wa.me/573002963698?text=${encodeURIComponent(message)}`, '_blank');
+        });
+    }
+
+    // --- MODAL LOGIC (Global) ---
+    const modal = document.getElementById('product-modal');
+    const closeModal = document.querySelector('.close-modal');
+    // Model elements
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalType = document.getElementById('modal-type');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalOccasion = document.getElementById('modal-occasion');
+    const modalCare = document.getElementById('modal-care');
+    const modalAddCart = document.getElementById('modal-add-cart'); // The 'Add to Cart' inside modal
+    const modalPrice = document.getElementById('modal-price'); // Price inside modal if exists
+
+    // Clean up any stale variant container if it exists
+    const staleVariantContainer = document.getElementById('variant-container');
+    if (staleVariantContainer) {
+        staleVariantContainer.remove();
+    }
+
+    window.openModal = function (id) {
+        const product = products.find(p => p.id === id);
+        if (!product) return;
+
+        if (modalImg) modalImg.src = product.image;
+        if (modalTitle) modalTitle.textContent = product.name;
+        if (modalType) modalType.textContent = product.type;
+        if (modalDesc) modalDesc.textContent = product.description;
+        if (modalOccasion) modalOccasion.textContent = product.occasion || 'Perfecto para cualquier ocasión especial.';
+
+        // Populate Care Instructions
+        if (modalCare) {
+            modalCare.innerHTML = '';
+            const careTips = product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
+            careTips.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                modalCare.appendChild(li);
             });
         }
-        cartTotalPrice.textContent = '$' + total.toLocaleString();
-    }
-}
 
-if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-        if (cart.length === 0) return;
-        let message = "Hola JK IMPERIO, deseo realizar el siguiente pedido: \n\n";
-        let total = 0;
-        cart.forEach(item => {
-            const subtotal = item.price * item.quantity;
-            message += `▪️ *(${item.quantity})* ${item.name} [Docena] - $${subtotal.toLocaleString()}\n`;
-            total += subtotal;
-        });
-        message += `\n🌺 *TOTAL A PAGAR: $${total.toLocaleString()}*`;
-        window.open(`https://wa.me/573002963698?text=${encodeURIComponent(message)}`, '_blank');
-    });
-}
+        // Modal Price (Fixed)
+        if (modalPrice) {
+            modalPrice.textContent = formatPrice(PRICE_DOCENA);
+        }
 
-// --- MODAL LOGIC (Global) ---
-const modal = document.getElementById('product-modal');
-const closeModal = document.querySelector('.close-modal');
-// Model elements
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalType = document.getElementById('modal-type');
-const modalDesc = document.getElementById('modal-desc');
-const modalOccasion = document.getElementById('modal-occasion');
-const modalCare = document.getElementById('modal-care');
-const modalAddCart = document.getElementById('modal-add-cart'); // The 'Add to Cart' inside modal
-const modalPrice = document.getElementById('modal-price'); // Price inside modal if exists
+        // Configure "Add to Cart" button in modal
+        if (modalAddCart) {
+            modalAddCart.onclick = function () {
+                window.addToCart(product.id);
+                if (modal) {
+                    modal.classList.remove('show');
+                    setTimeout(() => modal.style.display = 'none', 300);
+                }
+            };
+            modalAddCart.textContent = 'Agregar al Carrito 🛒';
+        }
 
-// Clean up any stale variant container if it exists
-const staleVariantContainer = document.getElementById('variant-container');
-if (staleVariantContainer) {
-    staleVariantContainer.remove();
-}
+        if (modal) {
+            modal.style.display = 'block';
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+    };
 
-window.openModal = function (id) {
-    const product = products.find(p => p.id === id);
-    if (!product) return;
-
-    if (modalImg) modalImg.src = product.image;
-    if (modalTitle) modalTitle.textContent = product.name;
-    if (modalType) modalType.textContent = product.type;
-    if (modalDesc) modalDesc.textContent = product.description;
-    if (modalOccasion) modalOccasion.textContent = product.occasion || 'Perfecto para cualquier ocasión especial.';
-
-    // Populate Care Instructions
-    if (modalCare) {
-        modalCare.innerHTML = '';
-        const careTips = product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
-        careTips.forEach(tip => {
-            const li = document.createElement('li');
-            li.textContent = tip;
-            modalCare.appendChild(li);
-        });
-    }
-
-    // Modal Price (Fixed)
-    if (modalPrice) {
-        modalPrice.textContent = formatPrice(PRICE_DOCENA);
-    }
-
-    // Configure "Add to Cart" button in modal
-    if (modalAddCart) {
-        modalAddCart.onclick = function () {
-            window.addToCart(product.id);
+    if (closeModal) {
+        closeModal.onclick = () => {
             if (modal) {
                 modal.classList.remove('show');
                 setTimeout(() => modal.style.display = 'none', 300);
             }
         };
-        modalAddCart.textContent = 'Agregar al Carrito 🛒';
     }
 
-    if (modal) {
-        modal.style.display = 'block';
-        setTimeout(() => modal.classList.add('show'), 10);
-    }
-};
-
-if (closeModal) {
-    closeModal.onclick = () => {
-        if (modal) {
+    window.onclick = (e) => {
+        if (modal && e.target === modal) {
             modal.classList.remove('show');
             setTimeout(() => modal.style.display = 'none', 300);
         }
+        if (cartModal && e.target === cartModal) {
+            toggleCart();
+        }
     };
-}
 
-window.onclick = (e) => {
-    if (modal && e.target === modal) {
-        modal.classList.remove('show');
-        setTimeout(() => modal.style.display = 'none', 300);
-    }
-    if (cartModal && e.target === cartModal) {
-        toggleCart();
-    }
-};
-
-// Initial Render
-renderProducts(products);
+    // Initial Render
+    renderProducts(products);
 
 });

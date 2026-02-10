@@ -77,6 +77,8 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     overflow-x: hidden;
+    border-top: 5px solid limegreen !important;
+    /* DEBUG MARKER: VERIFY UPDATE */
 }
 
 h1,
