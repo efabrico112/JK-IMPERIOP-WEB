@@ -95,6 +95,7 @@
     <!-- Hero Section (Slider) -->
     <section id="hero" class="hero-slider">
         <div class="slider-wrapper">
+            <!-- Slide 1 -->
             <div class="slide active"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_24.jpg?v=1770663823');">
                 <div class="hero-content">
@@ -106,35 +107,51 @@
                 </div>
                 <div class="hero-overlay"></div>
             </div>
+
+            <!-- Slide 2 -->
             <div class="slide"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/descarga_25.jpg?v=1770663823');">
                 <div class="hero-content">
-                    <h1 data-i18n="hero_title_2">Calidad Exportación</h1>
-                    <p data-i18n="hero_subtitle_2">Directo de la sabana de Bogotá a tus manos.</p>
-                    <a href="#shop-wholesale" class="btn btn-outline" data-i18n="nav_wholesale">Mayoristas</a>
+                    <h1 class="fade-in-up" data-i18n="hero_title_2">Calidad Exportación</h1>
+                    <p class="fade-in-up delay-1" data-i18n="hero_subtitle_2">Directo de la sabana de Bogotá a tus
+                        manos.</p>
+                    <a href="#shop-wholesale" class="btn btn-outline fade-in-up delay-2"
+                        data-i18n="nav_wholesale">Mayoristas</a>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
+
+            <!-- Slide 3 -->
             <div class="slide"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_21_17.png?v=1770663826');">
                 <div class="hero-content">
-                    <h1 data-i18n="hero_title_3">Frescura Garantizada</h1>
-                    <p data-i18n="hero_subtitle_3">Duración superior y colores vibrantes.</p>
+                    <h1 class="fade-in-up" data-i18n="hero_title_3">Frescura Garantizada</h1>
+                    <p class="fade-in-up delay-1" data-i18n="hero_subtitle_3">Duración superior y colores vibrantes.</p>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
+
+            <!-- Slide 4 -->
             <div class="slide"
                 style="background-image: url('https://cdn.shopify.com/s/files/1/0999/1615/2913/files/ChatGPT_Image_7_feb_2026_01_23_16.png?v=1770663826');">
                 <div class="hero-content">
-                    <h1 data-i18n="hero_title_4">Diseño Floral</h1>
-                    <p data-i18n="hero_subtitle_4">Arte y naturaleza en cada arreglo.</p>
+                    <h1 class="fade-in-up" data-i18n="hero_title_4">Diseño Floral</h1>
+                    <p class="fade-in-up delay-1" data-i18n="hero_subtitle_4">Arte y naturaleza en cada arreglo.</p>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
         </div>
+
         <div class="slider-controls">
-            <button class="prev-slide">&#10094;</button>
-            <button class="next-slide">&#10095;</button>
+            <button class="prev-slide" aria-label="Anterior">&#10094;</button>
+            <button class="next-slide" aria-label="Siguiente">&#10095;</button>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+            <span></span>
+            <span></span>
+            Scroll
         </div>
     </section>
 
@@ -144,25 +161,33 @@
     </a>
 
     <!-- Value Proposition -->
-    <section class="value-prop section-padding">
-        <div class="container grid-3">
-            <div class="value-card">
-                <h3 data-i18n="value_title_1">Calidad Tipo Exportación</h3>
-                <p data-i18n="value_desc_1">Nuestras flores son seleccionadas de los mejores cultivos de la Sabana de
-                    Bogotá, con estándares
-                    internacionales.</p>
+    <!-- Services Section (Architectural Blocks) -->
+    <section class="value-prop section-padding text-center">
+        <div class="container">
+            <div class="section-header mb-5">
+                <h2 data-i18n="value_title_main">Por Qué Elegirnos</h2>
             </div>
-            <div class="value-card">
-                <h3 data-i18n="value_title_2">Frescura Garantizada</h3>
-                <p data-i18n="value_desc_2">Directo del cultivo a tus manos. Garantizamos una duración superior a 5 días
-                    en florero con el
-                    cuidado adecuado.</p>
-            </div>
-            <div class="value-card">
-                <h3 data-i18n="value_title_3">Atención Mayorista</h3>
-                <p data-i18n="value_desc_3">Precios especiales para floristerías y eventos. Capacidad para grandes
-                    volúmenes con logística
-                    especializada.</p>
+            <div class="grid-3">
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3 data-i18n="value_title_1">Calidad Tipo Exportación</h3>
+                    <p data-i18n="value_desc_1">Flores seleccionadas de los mejores cultivos de la Sabana de
+                        Bogotá, cumpliendo los más altos estándares internacionales.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3 data-i18n="value_title_2">Frescura Garantizada</h3>
+                    <p data-i18n="value_desc_2">Directo del cultivo a tus manos. Garantizamos una duración superior a 8
+                        días
+                        con nuestros tips expertos de cuidado.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📦</div>
+                    <h3 data-i18n="value_title_3">Atención Mayorista</h3>
+                    <p data-i18n="value_desc_3">Precios especiales para floristerías y eventos. Capacidad logística para
+                        grandes
+                        volúmenes y despachos nacionales.</p>
+                </div>
             </div>
         </div>
     </section>
