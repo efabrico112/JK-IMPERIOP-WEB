@@ -44,18 +44,32 @@
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 6rem;
+    --spacing-xxl: 8rem;
+    /* New larger spacing */
 
-    --container-width: 1200px;
-    --header-height: 160px;
+    --container-width: 1300px;
+    /* Wider container for modern look */
+    --header-height: 100px;
+    /* Reduced base height for sleekness, expands if needed */
 
     /* --- Effects --- */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 12px rgba(20, 54, 37, 0.08);
-    /* Green tinted shadow */
-    --shadow-lg: 0 8px 24px rgba(20, 54, 37, 0.12);
-    --transition-fast: 0.2s ease;
-    --transition-medium: 0.3s ease;
-    --radius: 4px;
+    --shadow-md: 0 8px 16px rgba(20, 54, 37, 0.08);
+    /* Softer, deeper shadow */
+    --shadow-lg: 0 16px 32px rgba(20, 54, 37, 0.12);
+    --shadow-hover: 0 20px 40px rgba(20, 54, 37, 0.15);
+    /* Lift effect */
+
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+    --glass-blur: blur(12px);
+
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Smoother bezier */
+    --radius: 8px;
+    /* Slightly more rounded */
+    --radius-lg: 16px;
 }
 
 /* =========================================
@@ -273,19 +287,38 @@ img {
    HEADER
    ========================================= */
 /* =========================================
-   HEADER
+/* =========================================
+   HEADER & NAV (GLASSMORPHISM)
    ========================================= */
 .site-header {
-    height: var(--header-height);
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    background-color: var(--color-bg-body);
+    /* Solid initially */
+    padding: 0;
     position: fixed;
+    /* Sticky */
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: var(--header-height);
+    /* 100px base */
     display: flex;
     align-items: center;
+    border-bottom: 1px solid transparent;
+}
+
+/* Scrolled State (Added via JS) */
+.site-header.scrolled {
+    background-color: rgba(253, 252, 248, 0.85);
+    /* Translucent Cream */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 80px;
+    /* Shrink on scroll */
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .site-header .container {
@@ -294,15 +327,40 @@ img {
     align-items: center;
     width: 100%;
     padding: 0 40px;
-    /* Reduced side padding for wider look */
-    max-width: 1400px;
-    /* Allow it to go wider */
+    max-width: var(--container-width);
+    margin: 0 auto;
+    height: 100%;
 }
 
-/* 1-2-1 Layout Strategy for Perfect Centering */
+/* Logo Sizing & Transition */
+.logo-img {
+    height: 90px;
+    width: auto;
+    transition: height 0.4s ease;
+    object-fit: contain;
+}
+
+.brand-text-img {
+    height: 110px;
+    width: auto;
+    margin-left: -5px;
+    transition: height 0.4s ease, opacity 0.4s ease;
+    object-fit: contain;
+}
+
+/* Shrink Logo on Scroll */
+.site-header.scrolled .logo-img {
+    height: 60px;
+}
+
+.site-header.scrolled .brand-text-img {
+    height: 70px;
+    opacity: 0.9;
+}
+
+/* 1-2-1 Layout Strategy */
 .logo {
     flex: 1;
-    /* Takes up left space */
     display: flex;
     justify-content: flex-start;
 }
