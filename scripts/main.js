@@ -1272,15 +1272,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalType) modalType.textContent = product.type;
 
         // Description Logic: specific, robust check
-        let desc = product.description; // Default to specific 'es' field
-        if (currentLang !== 'es' && product['description_' + currentLang]) {
+        // Description Logic
+        let desc = product.description;
+        if (currentLang === 'en' && product.description_en) {
+            desc = product.description_en;
+        } else if (currentLang !== 'es' && product['description_' + currentLang]) {
             desc = product['description_' + currentLang];
         }
         if (modalDesc) modalDesc.textContent = desc;
 
         // Occasion Logic
+        // Occasion Logic
         let occ = product.occasion || 'Perfecto para cualquier ocasión especial.';
-        if (currentLang !== 'es' && product['occasion_' + currentLang]) {
+        if (currentLang === 'en' && product.occasion_en) {
+            occ = product.occasion_en;
+        } else if (currentLang !== 'es' && product['occasion_' + currentLang]) {
             occ = product['occasion_' + currentLang];
         }
         if (modalOccasion) modalOccasion.textContent = occ;
@@ -1290,7 +1296,9 @@ document.addEventListener('DOMContentLoaded', () => {
             modalCare.innerHTML = '';
 
             let careTips = product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
-            if (currentLang !== 'es' && product['care_' + currentLang]) {
+            if (currentLang === 'en' && product.care_en) {
+                careTips = product.care_en;
+            } else if (currentLang !== 'es' && product['care_' + currentLang]) {
                 careTips = product['care_' + currentLang];
             }
 
