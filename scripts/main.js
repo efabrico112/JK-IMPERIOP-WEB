@@ -1270,13 +1270,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalImg) modalImg.src = product.image;
         if (modalTitle) modalTitle.textContent = product.name;
         if (modalType) modalType.textContent = product.type;
-        if (modalDesc) modalDesc.textContent = product['description_' + currentLang] || product.description;
-        if (modalOccasion) modalOccasion.textContent = product['occasion_' + currentLang] || product.occasion || 'Perfecto para cualquier ocasión especial.';
+
+        // Description Logic: specific, robust check
+        let desc = product.description; // Default to specific 'es' field
+        if (currentLang !== 'es' && product['description_' + currentLang]) {
+            desc = product['description_' + currentLang];
+        }
+        if (modalDesc) modalDesc.textContent = desc;
+
+        // Occasion Logic
+        let occ = product.occasion || 'Perfecto para cualquier ocasión especial.';
+        if (currentLang !== 'es' && product['occasion_' + currentLang]) {
+            occ = product['occasion_' + currentLang];
+        }
+        if (modalOccasion) modalOccasion.textContent = occ;
 
         // Populate Care Instructions
         if (modalCare) {
             modalCare.innerHTML = '';
-            const careTips = product['care_' + currentLang] || product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
+
+            let careTips = product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
+            if (currentLang !== 'es' && product['care_' + currentLang]) {
+                careTips = product['care_' + currentLang];
+            }
+
             careTips.forEach(tip => {
                 const li = document.createElement('li');
                 li.textContent = tip;
