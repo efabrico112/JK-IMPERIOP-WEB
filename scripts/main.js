@@ -58,7 +58,8 @@ const translations = {
         footer_nav_title: "Navegación",
         footer_contact_title: "Contacto",
         footer_city: "Bogotá, Colombia",
-        footer_copy: "&copy; 2026 JK IMPERIO. Todos los derechos reservados."
+        footer_copy: "&copy; 2026 JK IMPERIO. Todos los derechos reservados.",
+        btn_view_details: "Ver Detalles"
     },
     en: {
         nav_home: "Home",
@@ -118,7 +119,8 @@ const translations = {
         footer_nav_title: "Navigation",
         footer_contact_title: "Contact",
         footer_city: "Bogotá, Colombia",
-        footer_copy: "&copy; 2026 JK IMPERIO. All rights reserved."
+        footer_copy: "&copy; 2026 JK IMPERIO. All rights reserved.",
+        btn_view_details: "View Details"
     },
     pt: {
         nav_home: "Início", nav_about: "Sobre Nós", nav_catalog: "Catálogo", nav_wholesale: "Atacado", nav_contact: "Contato",
@@ -160,7 +162,8 @@ const translations = {
         footer_nav_title: "Navegação",
         footer_contact_title: "Contato",
         footer_city: "Bogotá, Colômbia",
-        footer_copy: "&copy; 2026 JK IMPERIO. Todos os direitos reservados."
+        footer_copy: "&copy; 2026 JK IMPERIO. Todos os direitos reservados.",
+        btn_view_details: "Ver Detalhes"
     },
     it: {
         nav_home: "Home", nav_about: "Chi Siamo", nav_catalog: "Catalogo", nav_wholesale: "Ingrosso", nav_contact: "Contatto",
@@ -202,7 +205,8 @@ const translations = {
         footer_nav_title: "Navigazione",
         footer_contact_title: "Contatto",
         footer_city: "Bogotà, Colombia",
-        footer_copy: "&copy; 2026 JK IMPERIO. Tutti i diritti riservati."
+        footer_copy: "&copy; 2026 JK IMPERIO. Tutti i diritti riservati.",
+        btn_view_details: "Vedi Dettagli"
     },
     de: {
         nav_home: "Startseite", nav_about: "Über Uns", nav_catalog: "Katalog", nav_wholesale: "Großhandel", nav_contact: "Kontakt",
@@ -244,7 +248,8 @@ const translations = {
         footer_nav_title: "Navigation",
         footer_contact_title: "Kontakt",
         footer_city: "Bogotá, Kolumbien",
-        footer_copy: "&copy; 2026 JK IMPERIO. Alle Rechte vorbehalten."
+        footer_copy: "&copy; 2026 JK IMPERIO. Alle Rechte vorbehalten.",
+        btn_view_details: "Details Anzeigen"
     },
     fr: {
         nav_home: "Accueil", nav_about: "À Propos", nav_catalog: "Catalogue", nav_wholesale: "Grossiste", nav_contact: "Contact",
@@ -286,7 +291,8 @@ const translations = {
         footer_nav_title: "Navigation",
         footer_contact_title: "Contact",
         footer_city: "Bogotá, Colombie",
-        footer_copy: "&copy; 2026 JK IMPERIO. Tous droits réservés."
+        footer_copy: "&copy; 2026 JK IMPERIO. Tous droits réservés.",
+        btn_view_details: "Voir Détails"
     }
 };
 
@@ -411,9 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (filtered.length > 0) {
                 resultsContainer.style.display = 'block';
                 filtered.forEach(product => {
-                    const price = window.currencyConfig ?
-                        (window.currencyConfig[currentLang]?.symbol + ' ' + window.currencyConfig[currentLang]?.price) :
-                        '$' + product.price;
+                    const price = formatPrice(product.price);
 
                     const item = document.createElement('div');
                     item.className = 'search-item';
@@ -440,23 +444,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Toggle Input on Button Click
         searchBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default form submission or link behavior
             e.stopPropagation();
-            if (searchInput.classList.contains('active') && searchInput.value.trim() !== '') {
-                // If active and has text, perform full search render
-                const query = searchInput.value.toLowerCase().trim();
-                const filtered = window.products.filter(p => p.name.toLowerCase().includes(query));
-                renderProducts(filtered);
-                document.getElementById('shop-retail')?.scrollIntoView({ behavior: 'smooth' });
-                closeSearch();
+
+            const isExpanded = searchInput.classList.contains('active');
+
+            if (isExpanded) {
+                // If already open, clicking again should close it
+                searchInput.classList.remove('active');
+                document.body.classList.remove('search-active');
+                resultsContainer.style.display = 'none';
             } else {
-                // Just toggle
-                searchInput.classList.toggle('active');
-                if (searchInput.classList.contains('active')) {
-                    searchInput.focus();
-                    document.body.classList.add('search-active'); // Enable Focus Mode
-                } else {
-                    document.body.classList.remove('search-active');
-                }
+                // If closed, open it
+                searchInput.classList.add('active');
+                searchInput.focus();
+                document.body.classList.add('search-active');
             }
         });
 
@@ -519,6 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
             category: 'reds',
             price: 119900,
             isBestSeller: true,
+            description_en: 'The gold standard in red roses. With its deep, velvety crimson red color, the Freedom rose is a symbol of eternal love and intense passion. Its perfectly opening petals and robust stems guarantee a commanding and lasting presence.',
             description: 'El estándar de oro en rosas rojas. Con su color rojo carmesí profundo y aterciopelado, la Freedom es símbolo de amor eterno y pasión intensa. Sus pétalos de apertura perfecta y tallos robustos garantizan una presencia imponente y duradera.',
             occasion: 'Aniversarios, San Valentín, propuestas de matrimonio y declaraciones de amor apasionadas.',
             care: ['Recortar tallos 2cm en diagonal.', 'Usar agua fría y cambiar cada 2 días.', 'Evitar sol directo y corrientes de aire.']
@@ -882,16 +885,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper: Format Price
     const formatPrice = (price) => {
-        // We generally ignore individual product price and use the regional fixed price configuration
-        // But if 'price' argument is provided and we want to format it specifically, we could.
-        // For this requirement, we use the config price.
         const config = currencyConfig[currentLang] || currencyConfig['es'];
-        let formattedValue;
+        // Use provided price or default to config price
+        const valueToFormat = (price !== undefined) ? price : config.price;
 
+        let formattedValue;
         if (config.currency === 'COP') {
-            formattedValue = new Intl.NumberFormat('es-CO').format(config.price);
+            formattedValue = new Intl.NumberFormat('es-CO').format(valueToFormat);
         } else {
-            formattedValue = config.price.toFixed(2);
+            formattedValue = valueToFormat.toFixed(2);
         }
 
         return `${config.symbol} ${formattedValue} ${config.suffix}`;
@@ -925,14 +927,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${badgeHTML}
                     <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=2187&auto=format&fit=crop'">
                     <div class="card-overlay">
-                        <button class="btn-quick-view" onclick="openModal(${product.id})">Ver Detalles</button>
+                        <button class="btn-quick-view" onclick="openModal(${product.id})">${translations[currentLang].btn_view_details || 'Ver Detalles'}</button>
                     </div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">${product.name}</h3>
                     <p class="product-type">${product.type} • <span data-i18n="stems_label">${translations[currentLang].stems_label}</span></p>
                     <div class="product-meta">
-                        <p class="product-price">${displayPrice}</p>
+                        <p class="product-price">${formatPrice(product.price)}</p>
                         <button class="btn-add-cart" onclick="addToCart(${product.id})">🛒</button>
                     </div>
                 </div>
@@ -1157,13 +1159,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalImg) modalImg.src = product.image;
         if (modalTitle) modalTitle.textContent = product.name;
         if (modalType) modalType.textContent = product.type;
-        if (modalDesc) modalDesc.textContent = product.description;
+        if (modalDesc) modalDesc.textContent = product['description_' + currentLang] || product.description;
         if (modalOccasion) modalOccasion.textContent = product.occasion || 'Perfecto para cualquier ocasión especial.';
 
         // Populate Care Instructions
         if (modalCare) {
             modalCare.innerHTML = '';
-            const careTips = product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
+            const careTips = product['care_' + currentLang] || product.care || ['Cambiar agua cada 2 días', 'Cortar tallos en diagonal', 'Evitar sol directo'];
             careTips.forEach(tip => {
                 const li = document.createElement('li');
                 li.textContent = tip;
@@ -1173,7 +1175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Modal Price (Use Helper)
         if (modalPrice) {
-            modalPrice.textContent = formatPrice();
+            modalPrice.textContent = formatPrice(product.price);
         }
 
         // Configure "Add to Cart" button in modal
@@ -1185,7 +1187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => modal.style.display = 'none', 300);
                 }
             };
-            modalAddCart.textContent = 'Agregar al Carrito 🛒';
+            modalAddCart.textContent = translations[currentLang].modal_add || 'Agregar al Carrito 🛒';
         }
 
         if (modal) {

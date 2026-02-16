@@ -265,58 +265,7 @@ img {
     /* Space between logo and text */
 }
 
-/* =========================================
-   MODERN SEARCH BAR (MINIMALIST)
-   ========================================= */
-.search-container {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 50px;
-    /* Pill shape */
-    padding: 5px 15px;
-    border: 1px solid #e0e0e0;
-    /* Subtle border */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s ease;
-}
-
-.search-container:hover,
-.search-container:focus-within {
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-}
-
-.search-input-modern {
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 0.95rem;
-    color: var(--color-text);
-    width: 200px;
-    /* Always visible and wide enough */
-    font-family: 'Outfit', sans-serif;
-}
-
-.search-btn-modern {
-    background: transparent;
-    /* Transparent background */
-    border: none;
-    cursor: pointer;
-    color: var(--color-text);
-    /* Dark icon */
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, color 0.2s;
-}
-
-.search-btn-modern:hover {
-    color: var(--color-primary);
-    /* Green hover */
-    transform: scale(1.1);
-}
+/* --- Duplicate Search Block Removed --- */
 
 /* =========================================
    HEADER
@@ -2245,8 +2194,9 @@ body.search-active .search-results {
     /* EXPANDED STATE (On Click/Focus) */
     .search-input-modern:focus,
     .search-input-modern.active {
-        width: 500px;
-        /* Expand wide */
+        width: 300px;
+        /* Expand wide but not too wide */
+        max-width: 60vw;
         background: white;
         border: 1px solid var(--color-gold);
         border-radius: 30px;
